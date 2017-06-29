@@ -128,7 +128,7 @@ public class Ventana2 extends JFrame {
                 vModelo.removeAllElements();
                 String[] vLista = vHangar.RellenarArray();
 
-                for (int i = 0; i < vLista.length; i++) {
+                for (int i = vLista.length-1; i >= 0; i--) {
                     vModelo.addElement(vLista[i]);
 
                 }

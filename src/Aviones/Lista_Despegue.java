@@ -49,7 +49,6 @@ public class Lista_Despegue {
             vCont += 1;
         }
 
-        
         return vCont;
     }
 
@@ -64,10 +63,10 @@ public class Lista_Despegue {
 
         while (recorrer != null) {
 
-            vLista1 = "Modelo: " + recorrer.vModelo + "  Cantidad de pasajero: " + recorrer.vPasajeros + "  Sobrecargos: " + recorrer.vSobrecargos + "  Nombre del piloto: " + recorrer.vPiloto ;
+            vLista1 = vCont + 1 +"."+ "Modelo: " + recorrer.vModelo + "  Cantidad de pasajero: " + recorrer.vPasajeros + "  Sobrecargos: " + recorrer.vSobrecargos + "  Nombre del piloto: " + recorrer.vPiloto;
             recorrer = recorrer.siguiente;
             vLista[vCont] = vLista1;
-            vCont+=1;
+            vCont += 1;
 
         }
 
