@@ -94,12 +94,8 @@ public class Ventana2 extends JFrame {
 
             if (e.getSource().equals(Hangar_Despegue)) {
 
-                 
-                
-               //String vAvion = vListaAviones.getSelectedValue().toString();
-               int vIndex= vListaAviones.getSelectedIndex();
-               String vAVion=vModelo.getElementAt(vIndex).toString();
-                System.out.println("hola");
+                int vIndex = vListaAviones.getSelectedIndex();
+                System.out.println(vIndex);
 
             }
             if (e.getSource().equals(Ingresar)) {
