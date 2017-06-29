@@ -1,0 +1,22 @@
+# Archivo de clase Compilado
+*.clase
+
+# Archivo de registro
+*.Iniciar sesión
+
+# archivos BlueJ
+* .ctxt
+
+# Herramientas móviles para Java (J2ME)
+.mtj.tmp /
+
+# # Paquete de archivos
+*.tarro
+*.guerra
+*.oreja
+*.cremallera
+* .tar.gz
+* .rar
+
+# Registros de errores de la máquina virtual, ver http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid *
