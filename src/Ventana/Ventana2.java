@@ -16,7 +16,7 @@ public class Ventana2 extends JFrame {
     JPanel panel_Lista = new JPanel();
     JScrollPane scrollpane;
     JList lista_aviones = new JList();
-    JList vListaAviones = new JList();
+    
     DefaultListModel vModelo = new DefaultListModel();
     JComboBox vCombo = new JComboBox();
     JTextField vListaDespegue = new JTextField();
@@ -31,10 +31,12 @@ public class Ventana2 extends JFrame {
         panel.setLayout(null);
 
         lista_aviones.setModel(vModelo);
+        
 
         scrollpane = new JScrollPane(lista_aviones);
 
         scrollpane.setBounds(5, 45, 600, 200);
+        scrollpane.setViewportView(lista_aviones);
         vFondo.add(scrollpane);
 
         JLabel vEti = new JLabel("Listas de Aviones:");
@@ -94,8 +96,10 @@ public class Ventana2 extends JFrame {
 
             if (e.getSource().equals(Hangar_Despegue)) {
 
-                int vIndex = vListaAviones.getSelectedIndex();
-                System.out.println(vIndex);
+                int vIni=lista_aviones.getSelectedIndex();
+                System.out.println(vIni);
+                String vAvion =vModelo.getElementAt(vIni).toString();
+                System.out.println(vAvion);
 
             }
             if (e.getSource().equals(Ingresar)) {
