@@ -5,6 +5,8 @@ import javax.swing.JOptionPane;
 
 public class Lista_Hangar {
 
+    Lista_Despegue vDespegue = new Lista_Despegue();
+
     protected static Nodo_Hangar Inicio, Final;
 
     public Lista_Hangar() {
@@ -48,7 +50,7 @@ public class Lista_Hangar {
             recorrer = recorrer.siguiente;
             vCont += 1;
         }
-        
+
         return vCont;
     }
 
@@ -109,16 +111,19 @@ public class Lista_Hangar {
 
     }
 
-    public void BuscarElimiar(String pModelo) {
-        Nodo_Hangar recorrer = Inicio;
+    public String TrasladarADespegue() {
+        Nodo_Hangar vRecorrer = Inicio;
 
-        while (recorrer != null && pModelo != recorrer.vModelo) {
-            recorrer = recorrer.siguiente;
-        }
-        if (recorrer != null) {
-            Eliminar(recorrer);
+        while (vRecorrer.siguiente == Final) {
+
+            vRecorrer = vRecorrer.siguiente;
         }
 
+        String vAvion = "Modelo: " + Final.vModelo + "  Cantidad de pasajero: " + Final.vPasajeros + "  Sobrecargos: " + Final.vSobrecargos + "  Nombre del piloto: " + Final.vPiloto;
+
+        vDespegue.AgregarAlFinal(Final.vModelo, Final.vPasajeros, Final.vSobrecargos, Final.vPiloto);
+        Eliminar(Final);
+        return vAvion;
     }
 
 }
