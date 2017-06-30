@@ -11,12 +11,12 @@ import javax.swing.*;
 
 public class Ventana2 extends JFrame {
 
-    //Manejador_1 vManejador1= new Manejador_1();
     JPanel panel = new JPanel();
     JPanel panel_Lista = new JPanel();
     JScrollPane scrollpane;
     JList lista_aviones = new JList();
     JButton vVuelo_Aterrizaje = new JButton("Aterrizar el Avion seleccionaada");
+    JButton vAterrizaje_Hangar = new JButton("Desplazar el  Avion de Aterrizaje a Hangar");
     DefaultListModel vModelo = new DefaultListModel();
     JComboBox vCombo = new JComboBox();
     JTextField vListaDespegue = new JTextField();
@@ -105,11 +105,9 @@ public class Ventana2 extends JFrame {
             }
             if (e.getSource().equals(vVuelo_Aterrizaje)) {
 
-                int vIndice =+1+ lista_aviones.getSelectedIndex();
+                int vIndice = +1 + lista_aviones.getSelectedIndex();
                 vVuelo.BuscarElimiar(vIndice);
                 System.out.println(vIndice);
-                
-                
 
             }
             if (e.getSource().equals(Ingresar)) {
