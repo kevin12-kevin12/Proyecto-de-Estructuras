@@ -117,10 +117,9 @@ public class Lista_Vuelo {
         while (recorrer != null && pIndice != vTamanoNodos) {
             recorrer = recorrer.siguiente;
         }
-
+        vAterrizaje.AgregarAlFinal(recorrer.vModelo, recorrer.vPasajeros, recorrer.vSobrecargos, recorrer.vPiloto);
         if (recorrer != null) {
 
-            vAterrizaje.AgregarAlFinal(recorrer.vModelo, recorrer.vPasajeros, recorrer.vSobrecargos, recorrer.vPiloto);
             Eliminar(recorrer);
         }
 
