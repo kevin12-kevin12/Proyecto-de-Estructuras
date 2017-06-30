@@ -16,7 +16,7 @@ public class Ventana2 extends JFrame {
     JPanel panel_Lista = new JPanel();
     JScrollPane scrollpane;
     JList lista_aviones = new JList();
-
+    JButton vVuelo_Aterrizaje = new JButton("Aterrizar el Avion seleccionaada");
     DefaultListModel vModelo = new DefaultListModel();
     JComboBox vCombo = new JComboBox();
     JTextField vListaDespegue = new JTextField();
@@ -55,6 +55,8 @@ public class Ventana2 extends JFrame {
 
         Hangar_Despegue.setBounds(5, 250, 400, 20);
         Hangar_Despegue.setVisible(false);
+        vVuelo_Aterrizaje.setBounds(5, 250, 400, 20);
+        vVuelo_Aterrizaje.setVisible(false);
 
         Mostar.setBounds(1000, 80, 100, 20);
 
@@ -62,8 +64,10 @@ public class Ventana2 extends JFrame {
         Hangar_Despegue.addActionListener(new Manejador());
         Mostar.addActionListener(new Manejador());
         vCombo.addActionListener(new Manejador());
+        vVuelo_Aterrizaje.addActionListener(new Manejador());
         vFondo.setIcon(new ImageIcon(getClass().getResource("/Imagenes/Imagen1.png")));
 
+        vFondo.add(vVuelo_Aterrizaje);
         vFondo.add(vCombo);
         vFondo.add(Lista);
         vFondo.add(vEti);
@@ -99,6 +103,15 @@ public class Ventana2 extends JFrame {
 
                 System.out.println("Se elimino el avion" + vA);
             }
+            if (e.getSource().equals(vVuelo_Aterrizaje)) {
+
+                int vIndice =1+ lista_aviones.getSelectedIndex();
+                
+                vVuelo.BuscarElimiar(vIndice);
+                
+                
+
+            }
             if (e.getSource().equals(Ingresar)) {
 
                 vAvionesRandom.AgregarAviones();
@@ -121,6 +134,7 @@ public class Ventana2 extends JFrame {
                     vModelo.addElement(vLista[i]);
                 }
                 Hangar_Despegue.setVisible(false);
+                vVuelo_Aterrizaje.setVisible(false);
 
             }
             if ("Lista de hangar".equals(itemSeleecionado)) {
@@ -128,11 +142,12 @@ public class Ventana2 extends JFrame {
                 vModelo.removeAllElements();
                 String[] vLista = vHangar.RellenarArray();
 
-                for (int i = vLista.length-1; i >= 0; i--) {
+                for (int i = vLista.length - 1; i >= 0; i--) {
                     vModelo.addElement(vLista[i]);
 
                 }
                 Hangar_Despegue.setVisible(true);
+                vVuelo_Aterrizaje.setVisible(false);
 
             }
             if ("Lista de Vuelo".equals(itemSeleecionado)) {
@@ -145,6 +160,7 @@ public class Ventana2 extends JFrame {
 
                 }
                 Hangar_Despegue.setVisible(false);
+                vVuelo_Aterrizaje.setVisible(true);
             }
             if ("Lista de atrerrizaje".equals(itemSeleecionado)) {
 
@@ -155,6 +171,7 @@ public class Ventana2 extends JFrame {
 
                 }
                 Hangar_Despegue.setVisible(false);
+                vVuelo_Aterrizaje.setVisible(false);
 
             }
 

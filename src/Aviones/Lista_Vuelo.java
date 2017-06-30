@@ -4,6 +4,8 @@ import Aviones.Nodo_Vuelo;
 
 public class Lista_Vuelo {
 
+    Lista_Aterrizaje vAterrizaje = new Lista_Aterrizaje();
+
     protected static Nodo_Vuelo Inicio, Final;
 
     public Lista_Vuelo() {
@@ -62,7 +64,7 @@ public class Lista_Vuelo {
 
         while (recorrer != null) {
 
-            vLista1 =recorrer.vPiloto + " <-- Nombre del piloto "  + "Modelo: " + recorrer.vModelo + "  Cantidad de pasajero: " + recorrer.vPasajeros + "  Sobrecargos: " + recorrer.vSobrecargos;
+            vLista1 = recorrer.vPiloto + " <-- Nombre del piloto " + "Modelo: " + recorrer.vModelo + "  Cantidad de pasajero: " + recorrer.vPasajeros + "  Sobrecargos: " + recorrer.vSobrecargos;
             recorrer = recorrer.siguiente;
             vLista[vCont] = vLista1;
             vCont += 1;
@@ -108,13 +110,17 @@ public class Lista_Vuelo {
 
     }
 
-    public void BuscarElimiar(String pModelo) {
+    public void BuscarElimiar(int pIndice) {
         Nodo_Vuelo recorrer = Inicio;
+        int vTamanoNodos = totalPosiciones();
 
-        while (recorrer != null && pModelo != recorrer.vModelo) {
+        while (recorrer != null && pIndice != vTamanoNodos) {
             recorrer = recorrer.siguiente;
         }
+
         if (recorrer != null) {
+
+            vAterrizaje.AgregarAlFinal(recorrer.vModelo, recorrer.vPasajeros, recorrer.vSobrecargos, recorrer.vPiloto);
             Eliminar(recorrer);
         }
 
