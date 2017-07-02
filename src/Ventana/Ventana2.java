@@ -57,6 +57,7 @@ public class Ventana2 extends JFrame {
         Hangar_Despegue.setVisible(false);
         vVuelo_Aterrizaje.setBounds(5, 250, 400, 20);
         vVuelo_Aterrizaje.setVisible(false);
+       
 
         Mostar.setBounds(1000, 80, 100, 20);
 
