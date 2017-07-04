@@ -2,6 +2,7 @@ package Ventana;
 
 import Metodos_Funciones.Aviones_Creacion;
 import Aviones.*;
+
 import java.util.Scanner;
 import java.awt.*;
 import java.awt.event.*;
@@ -15,14 +16,14 @@ public class Ventana2 extends JFrame {
     JPanel panel_Lista = new JPanel();
     JScrollPane scrollpane;
     JList lista_aviones = new JList();
-    JButton vVuelo_Aterrizaje = new JButton("Aterrizar el Avion seleccionaada");
-    JButton vAterrizaje_Hangar = new JButton("Desplazar el  Avion de Aterrizaje a Hangar");
+    public JButton vVuelo_Aterrizaje = new JButton("Aterrizar el Avion seleccionaada");
+    public JButton vAterrizaje_Hangar = new JButton("Desplazar el  Avion de Aterrizaje a Hangar");
     DefaultListModel vModelo = new DefaultListModel();
     JComboBox vCombo = new JComboBox();
     JTextField vListaDespegue = new JTextField();
     JButton Ingresar = new JButton("Empezar con un random de 10 a 25");
-    JButton Hangar_Despegue = new JButton("Pasar el ultimo avion del Hangar a pista Despegue");
-    JButton Mostar = new JButton("Mostar");
+    public JButton Hangar_Despegue = new JButton("Pasar el ultimo avion del Hangar a pista Despegue");
+    public JButton Mostar = new JButton("Mostar");
     JLabel vFondo = new JLabel();
     JLabel Lista = new JLabel();
 
