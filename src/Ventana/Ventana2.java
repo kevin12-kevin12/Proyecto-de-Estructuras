@@ -105,7 +105,7 @@ public class Ventana2 extends JFrame {
             }
             if (e.getSource().equals(vVuelo_Aterrizaje)) {
 
-                int vIndice = +1 + lista_aviones.getSelectedIndex();
+                int vIndice = lista_aviones.getSelectedIndex();
                 vVuelo.BuscarElimiar(vIndice);
                 System.out.println(vIndice);
 
