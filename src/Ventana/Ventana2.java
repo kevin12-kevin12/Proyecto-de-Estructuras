@@ -26,6 +26,7 @@ public class Ventana2 extends JFrame {
     public JButton Mostar = new JButton("Mostar");
     JLabel vFondo = new JLabel();
     JLabel Lista = new JLabel();
+    
 
     public Ventana2() {
         super("Lista");
