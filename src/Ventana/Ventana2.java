@@ -64,7 +64,7 @@ public class Ventana2 extends JFrame {
         vVuelo_Aterrizaje.setBounds(5, 250, 400, 20);
         vVuelo_Aterrizaje.setVisible(false);
 
-        Agregar_Avion.setBounds(5, 600, 100, 20);
+        Agregar_Avion.setBounds(210, 25, 150, 20);
 
         Ingresar.addActionListener(new Manejador_1(this));
         Hangar_Despegue.addActionListener(new Manejador_1(this));
