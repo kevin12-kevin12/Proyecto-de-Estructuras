@@ -9,24 +9,28 @@ import java.awt.event.*;
 import java.util.Random;
 import Metodos_Funciones.*;
 import javax.swing.*;
+import Funciones_Botones.*;
 
 public class Ventana2 extends JFrame {
 
-    JPanel panel = new JPanel();
-    JPanel panel_Lista = new JPanel();
-    JScrollPane scrollpane;
-    JList lista_aviones = new JList();
+    public JPanel panel = new JPanel();
+    public JPanel panel_Lista = new JPanel();
+    public JScrollPane scrollpane;
+    public JList lista_aviones = new JList();
     public JButton vVuelo_Aterrizaje = new JButton("Aterrizar el Avion seleccionaada");
     public JButton vAterrizaje_Hangar = new JButton("Desplazar el  Avion de Aterrizaje a Hangar");
-    DefaultListModel vModelo = new DefaultListModel();
-    JComboBox vCombo = new JComboBox();
-    JTextField vListaDespegue = new JTextField();
-    JButton Ingresar = new JButton("Empezar con un random de 10 a 25");
+    public DefaultListModel vModelo = new DefaultListModel();
+    public JComboBox vCombo = new JComboBox();
+    public JTextField vModeloText = new JTextField();
+    public JButton Ingresar = new JButton("Empezar con un random de 10 a 25");
     public JButton Hangar_Despegue = new JButton("Pasar el ultimo avion del Hangar a pista Despegue");
-    public JButton Mostar = new JButton("Mostar");
-    JLabel vFondo = new JLabel();
-    JLabel Lista = new JLabel();
-    
+    public JButton Agregar_Avion = new JButton("Agregar un avion");
+    public JLabel vFondo = new JLabel();
+    public JLabel Lista = new JLabel();
+
+    public JButton getAgregarAvion() {
+        return Agregar_Avion;
+    }
 
     public Ventana2() {
         super("Lista");
@@ -43,7 +47,7 @@ public class Ventana2 extends JFrame {
         JLabel vEti = new JLabel("Listas de Aviones:");
         vEti.setBounds(5, 5, 200, 20);
 
-        vListaDespegue.setBounds(10, 800, 150, 20);
+        vModeloText.setBounds(10, 400, 150, 20);
 
         vCombo.addItem("Lista de hangar");
         vCombo.addItem("Lista de Vuelo");
@@ -60,13 +64,13 @@ public class Ventana2 extends JFrame {
         vVuelo_Aterrizaje.setBounds(5, 250, 400, 20);
         vVuelo_Aterrizaje.setVisible(false);
 
-        Mostar.setBounds(1000, 80, 100, 20);
+        Agregar_Avion.setBounds(5, 600, 100, 20);
 
-        Ingresar.addActionListener(new Manejador());
-        Hangar_Despegue.addActionListener(new Manejador());
-        Mostar.addActionListener(new Manejador());
-        vCombo.addActionListener(new Manejador());
-        vVuelo_Aterrizaje.addActionListener(new Manejador());
+        Ingresar.addActionListener(new Manejador_1(this));
+        Hangar_Despegue.addActionListener(new Manejador_1(this));
+        Agregar_Avion.addActionListener(new Manejador_1(this));
+        vCombo.addActionListener(new Manejador_1(this));
+        vVuelo_Aterrizaje.addActionListener(new Manejador_1(this));
         vFondo.setIcon(new ImageIcon(getClass().getResource("/Imagenes/Imagen1.png")));
 
         vFondo.add(vVuelo_Aterrizaje);
@@ -74,109 +78,16 @@ public class Ventana2 extends JFrame {
         vFondo.add(Lista);
         vFondo.add(vEti);
         vFondo.add(scrollpane);
-        vFondo.add(vListaDespegue);
+        vFondo.add(vModeloText);
 
         vFondo.add(Ingresar);
         vFondo.add(Hangar_Despegue);
-        vFondo.add(Mostar);
+        vFondo.add(Agregar_Avion);
         add(vFondo);
         setSize(1950, 1250);
         setVisible(true);
         add(panel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
-
-    class Manejador implements ActionListener {
-
-        Lista_Despegue vDespegue = new Lista_Despegue();
-        Lista_Hangar vHangar = new Lista_Hangar();
-        Lista_Aterrizaje vAterrizaje = new Lista_Aterrizaje();
-        Lista_Vuelo vVuelo = new Lista_Vuelo();
-        Aviones_Creacion vMetodo = new Aviones_Creacion();
-        CrearAvionesRandom vAvionesRandom = new CrearAvionesRandom();
-        Metodo_Ordenamiento_Burbuja vOrdenamiento = new Metodo_Ordenamiento_Burbuja();
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-
-            if (e.getSource().equals(Hangar_Despegue)) {
-
-                String vA = vHangar.TrasladarADespegue();
-
-                System.out.println("Se elimino el avion" + vA);
-            }
-            if (e.getSource().equals(vVuelo_Aterrizaje)) {
-
-                int vIndice = lista_aviones.getSelectedIndex();
-                vVuelo.BuscarElimiar(vIndice);
-                System.out.println(vIndice);
-
-            }
-            if (e.getSource().equals(Ingresar)) {
-
-                vAvionesRandom.AgregarAviones();
-                Ingresar.setVisible(false);
-
-            } else if (e.getSource().equals(Mostar)) {
-
-                //String vlis = vDespegue.MostrarLista();
-                //vListaDespegue.setText(vlis);
-                //System.out.println(vlis);
-            }
-
-            String itemSeleecionado = (String) vCombo.getSelectedItem();
-            if ("Lista de Despegue".equals(itemSeleecionado)) {
-
-                vModelo.removeAllElements();
-
-                String[] vLista = vDespegue.RellenarArray();
-                for (int i = 0; i < vLista.length; i++) {
-                    vModelo.addElement(vLista[i]);
-                }
-                Hangar_Despegue.setVisible(false);
-                vVuelo_Aterrizaje.setVisible(false);
-
-            }
-            if ("Lista de hangar".equals(itemSeleecionado)) {
-
-                vModelo.removeAllElements();
-                String[] vLista = vHangar.RellenarArray();
-
-                for (int i = vLista.length - 1; i >= 0; i--) {
-                    vModelo.addElement(vLista[i]);
-
-                }
-                Hangar_Despegue.setVisible(true);
-                vVuelo_Aterrizaje.setVisible(false);
-
-            }
-            if ("Lista de Vuelo".equals(itemSeleecionado)) {
-
-                vModelo.removeAllElements();
-                String[] vLista = vVuelo.RellenarArray();
-
-                for (int i = 0; i < vLista.length; i++) {
-                    vModelo.addElement(vLista[i]);
-
-                }
-                Hangar_Despegue.setVisible(false);
-                vVuelo_Aterrizaje.setVisible(true);
-            }
-            if ("Lista de atrerrizaje".equals(itemSeleecionado)) {
-
-                vModelo.removeAllElements();
-                String[] vLista = vAterrizaje.RellenarArray();
-                for (int i = 0; i < vLista.length; i++) {
-                    vModelo.addElement(vLista[i]);
-
-                }
-                Hangar_Despegue.setVisible(false);
-                vVuelo_Aterrizaje.setVisible(false);
-
-            }
-
-        }
-
     }
 
 }
