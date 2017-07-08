@@ -28,12 +28,25 @@ public class Ventana2 extends JFrame {
     public JLabel vFondo = new JLabel();
     public JLabel Lista = new JLabel();
 
-    public JButton getAgregarAvion() {
-        return Agregar_Avion;
-    }
+    public JButton[][] vMBotones_Vuelo = new JButton[3][7];
+    public JPanel vPanel_Vuelo = new JPanel(new GridLayout(3, 7, 30, 5));
 
     public Ventana2() {
         super("Lista");
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 7; j++) {
+
+                vMBotones_Vuelo[i][j] = new JButton();
+                vPanel_Vuelo.add(vMBotones_Vuelo[i][j]);
+                vMBotones_Vuelo[i][j].addActionListener(new Manejador_1(this));
+
+            }
+        }
+        
+        
+        vPanel_Vuelo.setBounds(700, 20, 800, 200);
+
         panel.setLayout(null);
 
         lista_aviones.setModel(vModelo);
@@ -80,13 +93,16 @@ public class Ventana2 extends JFrame {
         vFondo.add(scrollpane);
         vFondo.add(vModeloText);
 
+        vFondo.add(vPanel_Vuelo);
         vFondo.add(Ingresar);
         vFondo.add(Hangar_Despegue);
         vFondo.add(Agregar_Avion);
         add(vFondo);
+        
         setSize(1950, 1250);
         setVisible(true);
         add(panel);
+        setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
