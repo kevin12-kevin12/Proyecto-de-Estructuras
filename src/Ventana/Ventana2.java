@@ -15,10 +15,11 @@ import javax.swing.plaf.basic.BasicArrowButton;
 public class Ventana2 extends JFrame {
 
     //Etiquetas de validaciones
-    public JLabel Validacion1= new JLabel("*Nesecita al menos 5 caracteres");
-    public JLabel Validacion2= new JLabel("*Nesecita al menos 5 caracteres");
+    public JLabel Validacion1 = new JLabel("*Nesecita al menos 5 caracteres");
+    public JLabel Validacion2 = new JLabel("*Nesecita al menos 5 caracteres");
     //Panel para agregar Aviones 
-    public JButton Agregar_Un_Avion= new JButton("Agregar");
+    public JButton Agregar_Un_Avion = new JButton("Agregar");
+    public JButton Cancelar = new JButton("Cancelar");
     public JPanel Panel_Agregar_Aviones = new JPanel();
     public JLabel Et1 = new JLabel("Agregar a lista de:");
     public JLabel Et_Modelo = new JLabel("Modelo:");
@@ -81,6 +82,7 @@ public class Ventana2 extends JFrame {
         Combo_Agregar_Aviones.addItem("Despegue");
         Combo_Agregar_Aviones.setBounds(105, 5, 100, 20);
         Agregar_Un_Avion.setBounds(100, 130, 80, 30);
+        Cancelar.setBounds(190, 130, 100, 30);
         //Etiquetas de validaciones 
         Validacion1.setBounds(220, 30, 200, 20);
         Validacion1.setForeground(Color.red);
@@ -89,6 +91,7 @@ public class Ventana2 extends JFrame {
         Validacion2.setForeground(Color.red);
         Validacion2.setVisible(false);
         //Acciones de los botones
+        Cancelar.addActionListener(new Manejador_2(this));
         Combo_Agregar_Aviones.addActionListener(new Manejador_2(this));
         Agregar_Un_Avion.addActionListener(new Manejador_2(this));
         //Alladir compnentes al panel de agregar un avion
@@ -102,10 +105,11 @@ public class Ventana2 extends JFrame {
         Panel_Agregar_Aviones.add(Campo_Pasajeros);
         Panel_Agregar_Aviones.add(Et_Sobrecargos);
         Panel_Agregar_Aviones.add(Campo_Sobrecargos);
-        Panel_Agregar_Aviones.add(Agregar_Un_Avion);       
-        Panel_Agregar_Aviones.setBounds(5, 280, 430, 200);
+        Panel_Agregar_Aviones.add(Agregar_Un_Avion);
+        Panel_Agregar_Aviones.setBounds(5, 280, 430, 180);
         Panel_Agregar_Aviones.add(Validacion1);
         Panel_Agregar_Aviones.add(Validacion2);
+        Panel_Agregar_Aviones.add(Cancelar);
         Panel_Agregar_Aviones.setVisible(false);
         //Panel donde se van a incluir los botones aviones de vuelo
         vPanel_Vuelo.setBounds(700, 20, 800, 200);

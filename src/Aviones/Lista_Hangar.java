@@ -60,7 +60,6 @@ public class Lista_Hangar {
         String[] vLista = new String[vPosiciones];
         String vLista1 = "";
         int vCont = 0;
-        //String pLista = "";
         Nodo_Hangar recorrer = Inicio;
 
         while (recorrer != null) {
@@ -73,7 +72,6 @@ public class Lista_Hangar {
         }
 
         return vLista;
-
     }
 
     public void AgregarAlFinal(String pModelo, int pPasajeros, int pSobrecargos, String pPiloto) {
@@ -110,19 +108,43 @@ public class Lista_Hangar {
         }
     }
 
-    public boolean Igualador(String pModelo, String pPiloto, int pPasajeros, int pSobrecargos) {
+    public String[] Arreglo_validar() {
+
+        int vPosiciones = totalPosiciones();
+        String[] vLista = new String[vPosiciones];
+        String vLista1 = "";
+        int vCont = 0;
         Nodo_Hangar recorrer = Inicio;
-        boolean Bandera = false;
+
         while (recorrer != null) {
 
-            if (pModelo == recorrer.vModelo && pPiloto == recorrer.vPiloto && pPasajeros == recorrer.vPasajeros && pSobrecargos == recorrer.vSobrecargos) {
-                Bandera = true;
-            }
-
+            vLista1 = recorrer.vModelo + recorrer.vPasajeros + recorrer.vSobrecargos + recorrer.vPiloto;
             recorrer = recorrer.siguiente;
+            vLista[vCont] = vLista1;
+            vCont += 1;
+
         }
 
-        return Bandera;
+        return vLista;
+    }
+
+    public boolean Igualador(String pAvion) {
+
+        String vAvion = pAvion;
+        System.out.println(vAvion);
+        boolean vBandera = false;
+        String[] vLista = Arreglo_validar();
+
+        for (int i = 0; i < vLista.length; i++) {
+
+            if (vLista[i].equals(vAvion)) {
+
+                System.out.println(vLista[i]);
+                vBandera = true;
+            }
+        }
+
+        return vBandera;
     }
 
     public String TrasladarADespegue() {
