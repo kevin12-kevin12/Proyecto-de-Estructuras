@@ -33,6 +33,11 @@ public class Manejador_1 implements ActionListener {
 
         if (e.getSource().equals(Frame.Agregar_Avion)) {
 
+            Frame.Agregar_Avion.setVisible(false);
+            Frame.Hangar_Despegue.setVisible(false);
+            Frame.vVuelo_Aterrizaje.setVisible(false);
+            Frame.Panel_Agregar_Aviones.setVisible(true);
+
         }
         if (e.getSource().equals(Frame.Hangar_Despegue)) {
 
@@ -57,8 +62,7 @@ public class Manejador_1 implements ActionListener {
 
             vAvionesRandom.AgregarAviones();
             Frame.Ingresar.setVisible(false);
-          
-           
+
         }
         String itemSeleecionado = (String) Frame.vCombo.getSelectedItem();
         if ("Lista de Despegue".equals(itemSeleecionado)) {
@@ -69,8 +73,10 @@ public class Manejador_1 implements ActionListener {
             for (int i = 0; i < vLista.length; i++) {
                 Frame.vModelo.addElement(vLista[i]);
             }
-            Frame.Hangar_Despegue.setVisible(false);
-            Frame.vVuelo_Aterrizaje.setVisible(false);
+            
+                Frame.Hangar_Despegue.setVisible(false);
+                Frame.vVuelo_Aterrizaje.setVisible(false);
+            
 
         }
         if ("Lista de hangar".equals(itemSeleecionado)) {
@@ -87,13 +93,12 @@ public class Manejador_1 implements ActionListener {
 
         }
         if ("Lista de Vuelo".equals(itemSeleecionado)) {
-           int vCont=0;
+            int vCont = 0;
             Frame.Hangar_Despegue.setVisible(false);
             Frame.vVuelo_Aterrizaje.setVisible(true);
             Frame.vModelo.removeAllElements();
             String[] vLista = vVuelo.RellenarArray();
 
-            
             for (int i = 0; i < vLista.length; i++) {
                 Frame.vModelo.addElement(vLista[i]);
 
@@ -122,7 +127,7 @@ public class Manejador_1 implements ActionListener {
             }
             Frame.Hangar_Despegue.setVisible(false);
             Frame.vVuelo_Aterrizaje.setVisible(false);
-            
+
         }
 
     }

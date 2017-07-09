@@ -10,21 +10,23 @@ import java.util.Random;
 import Metodos_Funciones.*;
 import javax.swing.*;
 import Funciones_Botones.*;
+import javax.swing.plaf.basic.BasicArrowButton;
 
 public class Ventana2 extends JFrame {
 
     //Panel para agregar Aviones 
+    public JButton Agregar_Un_Avion= new JButton("Agregar");
     public JPanel Panel_Agregar_Aviones = new JPanel();
-    public JLabel Et1 = new JLabel();
-    public JLabel Et_Modelo = new JLabel();
-    public JLabel Et_Piloto = new JLabel();
-    public JLabel Et_Pasajeros = new JLabel();
-    public JLabel Et_Sobrecargos = new JLabel();
+    public JLabel Et1 = new JLabel("Agregar a lista de:");
+    public JLabel Et_Modelo = new JLabel("Modelo:");
+    public JLabel Et_Piloto = new JLabel("Piloto:");
+    public JLabel Et_Pasajeros = new JLabel("Pasajeros:");
+    public JLabel Et_Sobrecargos = new JLabel("Sobrecargos:");
     public JTextField Campo_Modelo = new JTextField();
     public JTextField Campo_Piloto = new JTextField();
     public JTextField Campo_Sobrecargos = new JTextField();
     public JTextField Campo_Pasajeros = new JTextField();
-    public JComboBox combo_Agregar_Aviones = new JComboBox();
+    public JComboBox Combo_Agregar_Aviones = new JComboBox();
     //Panel Principal
     public JPanel panel = new JPanel();
     //Panel donde va a estar la Jlist de aviones con su respectivo modelo y jCombobox
@@ -59,6 +61,40 @@ public class Ventana2 extends JFrame {
 
             }
         }
+        //Panel para agregar un avion
+        Panel_Agregar_Aviones.setLayout(null);
+        Et1.setBounds(0, 5, 150, 20);
+        Et_Modelo.setBounds(0, 30, 50, 20);
+        Campo_Modelo.setBounds(65, 30, 150, 20);
+        Et_Piloto.setBounds(0, 55, 50, 20);
+        Campo_Piloto.setBounds(65, 55, 150, 20);
+        Et_Pasajeros.setBounds(0, 80, 70, 20);
+        Campo_Pasajeros.setBounds(65, 80, 150, 20);
+        Et_Sobrecargos.setBounds(0, 105, 80, 20);
+        Campo_Sobrecargos.setBounds(80, 105, 150, 20);
+        Combo_Agregar_Aviones.addItem("hangar");
+        Combo_Agregar_Aviones.addItem("Vuelo");
+        Combo_Agregar_Aviones.addItem("Atrerrizaje");
+        Combo_Agregar_Aviones.addItem("Despegue");
+        Combo_Agregar_Aviones.setBounds(105, 5, 100, 20);
+        Agregar_Un_Avion.setBounds(100, 130, 80, 30);
+        //Acciones de los botones
+        Combo_Agregar_Aviones.addActionListener(new Manejador_2(this));
+        Agregar_Avion.addActionListener(new Manejador_2(this));
+        //Alladir compnentes al panel de agregar un avion
+        Panel_Agregar_Aviones.add(Combo_Agregar_Aviones);
+        Panel_Agregar_Aviones.add(Et1);
+        Panel_Agregar_Aviones.add(Et_Modelo);
+        Panel_Agregar_Aviones.add(Campo_Modelo);
+        Panel_Agregar_Aviones.add(Et_Piloto);
+        Panel_Agregar_Aviones.add(Campo_Piloto);
+        Panel_Agregar_Aviones.add(Et_Pasajeros);
+        Panel_Agregar_Aviones.add(Campo_Pasajeros);
+        Panel_Agregar_Aviones.add(Et_Sobrecargos);
+        Panel_Agregar_Aviones.add(Campo_Sobrecargos);
+        Panel_Agregar_Aviones.add(Agregar_Un_Avion);       
+        Panel_Agregar_Aviones.setBounds(5, 280, 300, 200);
+        Panel_Agregar_Aviones.setVisible(false);
         //Panel donde se van a incluir los botones aviones de vuelo
         vPanel_Vuelo.setBounds(700, 20, 800, 200);
         vPanel_Vuelo.setVisible(false);
@@ -101,6 +137,7 @@ public class Ventana2 extends JFrame {
         vFondo.add(Ingresar);
         vFondo.add(Hangar_Despegue);
         vFondo.add(Agregar_Avion);
+        vFondo.add(Panel_Agregar_Aviones);
         //Ajustes prinsipales de la interfaz
         add(vFondo);
         setSize(1950, 1250);
