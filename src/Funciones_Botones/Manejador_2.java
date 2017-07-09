@@ -36,46 +36,79 @@ public class Manejador_2 implements ActionListener {
                         try {
 
                             int vSobrecargos = Integer.parseInt(Frame.Campo_Sobrecargos.getText());
-                            int vOpcion = JOptionPane.showConfirmDialog(null, "Modelo: " + vModelo + "\nPiloto: " + vPiloto + "\nPasajeros: " + vPasajeros + "\nSobrecargos: " + vSobrecargos + "\nEsta Seguro que quieres agregar el avion a la lista del Hangar\nse agregara de ultimo con los datos ingresados?");
 
-                            if (vOpcion == 0) {
+                            String pAvion = vModelo + vPasajeros + vSobrecargos + vPiloto;
+                            boolean vBandera = vHangar.Igualador(pAvion);
+                            System.out.println(vBandera);
 
-                                String pAvion = vModelo + vPasajeros + vSobrecargos + vPiloto;
-                                boolean vBandera = vHangar.Igualador(pAvion);
-                                System.out.println(vBandera);
+                            if (vBandera == true) {
 
-                                if (vBandera == true) {
-
-                                    JOptionPane.showMessageDialog(null, "Ya hay un avion con las mismas caracteristicas\n compruebe con otras cracteristicas");
-
-                                } else {
-
-                                    if ("hangar".equals(itemSeleecionado)) {
-                                        vHangar.AgregarAlFinal(vModelo, vPasajeros, vSobrecargos, vPiloto);
-                                        Frame.vModelo.removeAllElements();
-                                        String[] vLista = vHangar.RellenarArray();
-
-                                        for (int i = vLista.length - 1; i >= 0; i--) {
-                                            Frame.vModelo.addElement(vLista[i]);
-
-                                        }
-                                        Frame.Campo_Modelo.setText("");
-                                        Frame.Campo_Pasajeros.setText("");
-                                        Frame.Campo_Piloto.setText("");
-                                        Frame.Campo_Sobrecargos.setText("");
-                                        Frame.Agregar_Avion.setVisible(true);
-                                        Frame.Panel_Agregar_Aviones.setVisible(false);
-                                    } else if ("Vuelo".equals(itemSeleecionado)) {
-
-                                    } else if ("Atrerrizaje".equals(itemSeleecionado)) {
-
-                                    } else if ("Despegue".equals(itemSeleecionado)) {
-
-                                    }
-                                }
+                                System.out.println("Avion existente en la lista");
 
                             } else {
-                                System.out.println("No");
+                                if ("hangar".equals(itemSeleecionado)) {
+
+                                    int vOpcion = JOptionPane.showConfirmDialog(null, "Modelo: " + vModelo + "\nPiloto: " + vPiloto + "\nPasajeros: " + vPasajeros + "\nSobrecargos: " + vSobrecargos + "\nEsta Seguro que quieres agregar el avion a la lista del Hangar\nse agregara de ultimo con los datos ingresados?");
+                                    if (vOpcion == 0) {
+                                        vHangar.AgregarAlFinal(vModelo, vPasajeros, vSobrecargos, vPiloto);
+                                    }
+                                    Frame.vModelo.removeAllElements();
+                                    String[] vLista = vHangar.RellenarArray();
+
+                                    for (int i = vLista.length - 1; i >= 0; i--) {
+                                        Frame.vModelo.addElement(vLista[i]);
+
+                                    }
+                                    Frame.Campo_Modelo.setText("");
+                                    Frame.Campo_Pasajeros.setText("");
+                                    Frame.Campo_Piloto.setText("");
+                                    Frame.Campo_Sobrecargos.setText("");
+                                    Frame.Agregar_Avion.setVisible(true);
+                                    Frame.Panel_Agregar_Aviones.setVisible(false);
+                                } else if ("Vuelo".equals(itemSeleecionado)) {
+                                    int vOpcion = JOptionPane.showConfirmDialog(null, "Modelo: " + vModelo + "\nPiloto: " + vPiloto + "\nPasajeros: " + vPasajeros + "\nSobrecargos: " + vSobrecargos + "\n" + "Estas seguro que quieres agregar este avion a la lista de Vuelo?");
+                                    if (vOpcion == 0) {
+                                        vVuelo.AgregarAlFinal(vModelo, vPasajeros, vSobrecargos, vPiloto);
+                                    }
+                                    int vCont = 0;
+                                    Frame.Hangar_Despegue.setVisible(false);
+                                    Frame.vVuelo_Aterrizaje.setVisible(true);
+                                    Frame.vModelo.removeAllElements();
+                                    String[] vLista = vVuelo.RellenarArray();
+                                    for (int i = 0; i < vLista.length; i++) {
+                                        Frame.vModelo.addElement(vLista[i]);
+                                    }
+                                    Frame.Campo_Modelo.setText("");
+                                    Frame.Campo_Pasajeros.setText("");
+                                    Frame.Campo_Piloto.setText("");
+                                    Frame.Campo_Sobrecargos.setText("");
+                                    Frame.Agregar_Avion.setVisible(true);
+                                    Frame.Panel_Agregar_Aviones.setVisible(false);
+
+                                } else if ("Atrerrizaje".equals(itemSeleecionado)) {
+                                    int vOpcion = JOptionPane.showConfirmDialog(null, "Modelo: " + vModelo + "\nPiloto: " + vPiloto + "\nPasajeros: " + vPasajeros + "\nSobrecargos: " + vSobrecargos + "\n" + "Estas seguro que quieres agregar este avion a la lista de Aterrizaje?");
+
+                                    if (vOpcion == 0) {
+                                        vAterrizaje.AgregarAlFinal(vModelo, vPasajeros, vSobrecargos, vPiloto);
+                                    }
+                                    Frame.vModelo.removeAllElements();
+                                    String[] vLista = vAterrizaje.RellenarArray();
+                                    for (int i = 0; i < vLista.length; i++) {
+                                        Frame.vModelo.addElement(vLista[i]);
+
+                                    }
+                                    Frame.Campo_Modelo.setText("");
+                                    Frame.Campo_Pasajeros.setText("");
+                                    Frame.Campo_Piloto.setText("");
+                                    Frame.Campo_Sobrecargos.setText("");
+                                    Frame.Agregar_Avion.setVisible(true);
+                                    Frame.Panel_Agregar_Aviones.setVisible(false);
+                                    Frame.Hangar_Despegue.setVisible(false);
+                                    Frame.vVuelo_Aterrizaje.setVisible(false);
+                                } else if ("Despegue".equals(itemSeleecionado)) {
+
+                                }
+
                             }
                         } catch (NumberFormatException j) {
                             JOptionPane.showMessageDialog(null, "Error" + j.getMessage());
@@ -102,5 +135,6 @@ public class Manejador_2 implements ActionListener {
             Frame.Agregar_Avion.setVisible(true);
             Frame.Panel_Agregar_Aviones.setVisible(false);
         }
+
     }
 }

@@ -6,6 +6,8 @@ import javax.swing.JOptionPane;
 public class Lista_Hangar {
 
     Lista_Despegue vDespegue = new Lista_Despegue();
+    Lista_Aterrizaje vAterrizaje = new Lista_Aterrizaje();
+    Lista_Vuelo vVuelo = new Lista_Vuelo();
 
     protected static Nodo_Hangar Inicio, Final;
 
@@ -133,13 +135,44 @@ public class Lista_Hangar {
         String vAvion = pAvion;
         System.out.println(vAvion);
         boolean vBandera = false;
-        String[] vLista = Arreglo_validar();
+        String[] vLista_Hangar = Arreglo_validar();
+        String[] vLista_Despegue = vDespegue.Arreglo_validar();
+        String[] vLista_Aterrizaje = vAterrizaje.Arreglo_validar();
+        String[] vLista_Vuelo = vVuelo.Arreglo_validar();
 
-        for (int i = 0; i < vLista.length; i++) {
+        for (int i = 0; i < vLista_Hangar.length; i++) {
 
-            if (vLista[i].equals(vAvion)) {
+            if (vLista_Hangar[i].equals(vAvion)) {
 
-                System.out.println(vLista[i]);
+                System.out.println(vLista_Hangar[i]);
+                JOptionPane.showMessageDialog(null, "Ya hay un avion en la lista de Hangar con las mismas caracteristicas\n compruebe con otras cracteristicas si quieres agregar un avion");
+                vBandera = true;
+            }
+        }
+        for (int i = 0; i < vLista_Despegue.length; i++) {
+
+            if (vLista_Despegue[i].equals(vAvion)) {
+
+                System.out.println(vLista_Despegue[i]);
+                JOptionPane.showMessageDialog(null, "Ya hay un avion en la lista de Despegue con las mismas caracteristicas\n compruebe con otras cracteristicas  si quieres agregar un avion");
+                vBandera = true;
+            }
+        }
+        for (int i = 0; i < vLista_Vuelo.length; i++) {
+
+            if (vLista_Vuelo[i].equals(vAvion)) {
+
+                System.out.println(vLista_Vuelo[i]);
+                JOptionPane.showMessageDialog(null, "Ya hay un avion en la lista de Vuelo con las mismas caracteristicas\n compruebe con otras cracteristicas  si quieres agregar un avion");
+                vBandera = true;
+            }
+        }
+        for (int i = 0; i < vLista_Aterrizaje.length; i++) {
+
+            if (vLista_Aterrizaje[i].equals(vAvion)) {
+
+                System.out.println(vLista_Aterrizaje[i]);
+                JOptionPane.showMessageDialog(null, "Ya hay un avion en la lista de Aterrizaje con las mismas caracteristicas\n compruebe con otras cracteristicas si quieres agregar un avion");
                 vBandera = true;
             }
         }

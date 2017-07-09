@@ -51,7 +51,7 @@ public class Lista_Aterrizaje {
         return vCont;
     }
 
-   public String[] RellenarArray() {
+    public String[] RellenarArray() {
 
         int vPosiciones = totalPosiciones();
         String[] vLista = new String[vPosiciones];
@@ -117,7 +117,26 @@ public class Lista_Aterrizaje {
         if (recorrer != null) {
             Eliminar(recorrer);
         }
+    }
 
+    public String[] Arreglo_validar() {
+
+        int vPosiciones = totalPosiciones();
+        String[] vLista = new String[vPosiciones];
+        String vLista1 = "";
+        int vCont = 0;
+        Nodo_Aterrizaje recorrer = Inicio;
+
+        while (recorrer != null) {
+
+            vLista1 = recorrer.vModelo + recorrer.vPasajeros + recorrer.vSobrecargos + recorrer.vPiloto;
+            recorrer = recorrer.siguiente;
+            vLista[vCont] = vLista1;
+            vCont += 1;
+
+        }
+
+        return vLista;
     }
 
 }

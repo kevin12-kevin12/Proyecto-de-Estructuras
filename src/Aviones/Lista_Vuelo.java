@@ -98,6 +98,26 @@ public class Lista_Vuelo {
 
     }
 
+    public String[] Arreglo_validar() {
+
+        int vPosiciones = totalPosiciones();
+        String[] vLista = new String[vPosiciones];
+        String vLista1 = "";
+        int vCont = 0;
+        Nodo_Vuelo recorrer = Inicio;
+
+        while (recorrer != null) {
+
+            vLista1 = recorrer.vModelo + recorrer.vPasajeros + recorrer.vSobrecargos + recorrer.vPiloto;
+            recorrer = recorrer.siguiente;
+            vLista[vCont] = vLista1;
+            vCont += 1;
+
+        }
+
+        return vLista;
+    }
+
     public String[] RellenarArray() {
 
         OrdenarNodos();
@@ -172,7 +192,7 @@ public class Lista_Vuelo {
         }
 
     }
-    
+
     public String[] RellenarBotones() {
 
         OrdenarNodos();
@@ -185,7 +205,7 @@ public class Lista_Vuelo {
 
         while (recorrer != null) {
 
-            vLista1 = recorrer.vModelo; 
+            vLista1 = recorrer.vModelo;
             recorrer = recorrer.siguiente;
             vLista[vCont] = vLista1;
             vCont += 1;
