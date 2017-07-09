@@ -108,7 +108,21 @@ public class Lista_Hangar {
             }
 
         }
+    }
 
+    public boolean Igualador(String pModelo, String pPiloto, int pPasajeros, int pSobrecargos) {
+        Nodo_Hangar recorrer = Inicio;
+        boolean Bandera = false;
+        while (recorrer != null) {
+
+            if (pModelo == recorrer.vModelo && pPiloto == recorrer.vPiloto && pPasajeros == recorrer.vPasajeros && pSobrecargos == recorrer.vSobrecargos) {
+                Bandera = true;
+            }
+
+            recorrer = recorrer.siguiente;
+        }
+
+        return Bandera;
     }
 
     public String TrasladarADespegue() {
