@@ -172,5 +172,28 @@ public class Lista_Vuelo {
         }
 
     }
+    
+    public String[] RellenarBotones() {
+
+        OrdenarNodos();
+        int vPosiciones = totalPosiciones();
+        String[] vLista = new String[vPosiciones];
+        String vLista1 = "";
+        int vCont = 0;
+        //String pLista = "";
+        Nodo_Vuelo recorrer = Inicio;
+
+        while (recorrer != null) {
+
+            vLista1 = recorrer.vModelo; 
+            recorrer = recorrer.siguiente;
+            vLista[vCont] = vLista1;
+            vCont += 1;
+
+        }
+
+        return vLista;
+
+    }
 
 }
