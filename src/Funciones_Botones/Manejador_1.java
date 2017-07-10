@@ -11,6 +11,7 @@ import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
 import Ventana.*;
+import java.util.Iterator;
 
 public class Manejador_1 implements ActionListener {
 
@@ -40,10 +41,15 @@ public class Manejador_1 implements ActionListener {
 
         }
         if (e.getSource().equals(Frame.Hangar_Despegue)) {
+            int vIn = Frame.lista_aviones.getFirstVisibleIndex();
 
-            String vA = vHangar.TrasladarADespegue();
+            if (vIn >= 0) {
+                String vA = vHangar.TrasladarADespegue();
+            }else{
+                JOptionPane.showMessageDialog(null, "La lista de hangar esta vacia","Lista Vacia",JOptionPane.INFORMATION_MESSAGE);
+            
+            }
 
-            System.out.println("Se elimino el avion" + vA);
         }
 
         if (e.getSource().equals(Frame.vVuelo_Aterrizaje)) {
@@ -73,10 +79,9 @@ public class Manejador_1 implements ActionListener {
             for (int i = 0; i < vLista.length; i++) {
                 Frame.vModelo.addElement(vLista[i]);
             }
-            
-                Frame.Hangar_Despegue.setVisible(false);
-                Frame.vVuelo_Aterrizaje.setVisible(false);
-            
+
+            Frame.Hangar_Despegue.setVisible(false);
+            Frame.vVuelo_Aterrizaje.setVisible(false);
 
         }
         if ("Lista de hangar".equals(itemSeleecionado)) {

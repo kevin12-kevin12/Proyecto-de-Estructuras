@@ -118,6 +118,7 @@ public class Ventana2 extends JFrame {
         panel.setLayout(null);
         //Posicion y modelo de la Jlist de la lista de aviones 
         lista_aviones.setModel(vModelo);
+        lista_aviones.setSelectionBackground(Color.ORANGE);
         scrollpane = new JScrollPane(lista_aviones);
         scrollpane.setBounds(5, 45, 600, 200);
         scrollpane.setViewportView(lista_aviones);
