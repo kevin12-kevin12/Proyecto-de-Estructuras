@@ -29,9 +29,40 @@ public class INICIO extends JFrame {
         Panel1.add(fondo);
         setSize(1920, 1250);
         setSize(1950, 1250);
+        Image icon1 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/p.jpg"));
+        setIconImage(icon1);
         setVisible(true);
+        EventTecla vEvento = new EventTecla();
+        addKeyListener(vEvento);
         add(Panel1);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    }
+
+    class EventTecla implements KeyListener {
+
+        @Override
+        public void keyTyped(KeyEvent e) {
+
+        }
+
+        @Override
+        public void keyPressed(KeyEvent e) {
+            int vCodigo = e.getKeyCode();
+            System.out.println(vCodigo);
+            if (vCodigo == 10) {
+
+                Ventana2 vInterfaz = new Ventana2();
+                vInterfaz.setVisible(true);
+                dispose();
+
+            }
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+
+        }
 
     }
 

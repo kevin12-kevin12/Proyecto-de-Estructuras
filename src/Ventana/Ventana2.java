@@ -31,6 +31,7 @@ public class Ventana2 extends JFrame {
     public JTextField Campo_Sobrecargos = new JTextField();
     public JTextField Campo_Pasajeros = new JTextField();
     public JComboBox Combo_Agregar_Aviones = new JComboBox();
+    public JComboBox ComboModeloAviones = new JComboBox();
     //Panel Principal
     public JPanel panel = new JPanel();
     //Panel donde va a estar la Jlist de aviones con su respectivo modelo y jCombobox
@@ -70,16 +71,25 @@ public class Ventana2 extends JFrame {
         Et1.setBounds(0, 5, 150, 20);
         Et_Modelo.setBounds(0, 30, 50, 20);
         Campo_Modelo.setBounds(65, 30, 150, 20);
+        ComboModeloAviones.setBounds(220, 30, 150, 20);
         Et_Piloto.setBounds(0, 55, 50, 20);
         Campo_Piloto.setBounds(65, 55, 150, 20);
         Et_Pasajeros.setBounds(0, 80, 70, 20);
         Campo_Pasajeros.setBounds(65, 80, 150, 20);
         Et_Sobrecargos.setBounds(0, 105, 80, 20);
         Campo_Sobrecargos.setBounds(80, 105, 150, 20);
+
         Combo_Agregar_Aviones.addItem("hangar");
         Combo_Agregar_Aviones.addItem("Vuelo");
         Combo_Agregar_Aviones.addItem("Atrerrizaje");
         Combo_Agregar_Aviones.addItem("Despegue");
+        String[] vLista = {
+            "Modelos Existentes", "Boeing 747", "Boeing 777", "Airbus A340", "Boeing 767", "Airbus A330", "Boeing 757", "Boeing 737", "McDonnell Douglas MD-80", "Embraer 170"
+        };
+        for (int i = 0; i < vLista.length; i++) {
+            ComboModeloAviones.addItem(vLista[i]);
+        }
+
         Combo_Agregar_Aviones.setBounds(105, 5, 100, 20);
         Agregar_Un_Avion.setBounds(100, 130, 80, 30);
         Cancelar.setBounds(190, 130, 100, 30);
@@ -92,6 +102,7 @@ public class Ventana2 extends JFrame {
         Validacion2.setVisible(false);
         //Acciones de los botones
         Cancelar.addActionListener(new Manejador_2(this));
+
         Combo_Agregar_Aviones.addActionListener(new Manejador_2(this));
         Agregar_Un_Avion.addActionListener(new Manejador_2(this));
         //Alladir compnentes al panel de agregar un avion
@@ -110,6 +121,7 @@ public class Ventana2 extends JFrame {
         Panel_Agregar_Aviones.add(Validacion1);
         Panel_Agregar_Aviones.add(Validacion2);
         Panel_Agregar_Aviones.add(Cancelar);
+        Panel_Agregar_Aviones.add(ComboModeloAviones);
         Panel_Agregar_Aviones.setVisible(false);
         //Panel donde se van a incluir los botones aviones de vuelo
         vPanel_Vuelo.setBounds(700, 20, 800, 200);
@@ -156,8 +168,11 @@ public class Ventana2 extends JFrame {
         vFondo.add(Agregar_Avion);
         vFondo.add(Panel_Agregar_Aviones);
         //Ajustes prinsipales de la interfaz
+
         add(vFondo);
         setSize(1950, 1250);
+        Image icon1 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagenes/p.jpg"));
+        setIconImage(icon1);
         setVisible(true);
         add(panel);
         setLayout(null);
