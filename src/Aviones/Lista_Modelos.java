@@ -58,14 +58,17 @@ public class Lista_Modelos {
     public void Agregar_modelo_Igualando(String pModelo) {
 
         String[] vLista = ModelosAviones();
+        boolean vBandera = false;
         for (int i = 0; i < vLista.length; i++) {
 
-            if (pModelo != vLista[i]) {
-                
-                AgregarAlFinal(pModelo);
+            if (pModelo.equals(vLista[i])) {
+                vBandera = true;
 
             }
+        }
 
+        if (vBandera == false) {
+            AgregarAlFinal(pModelo);
         }
 
     }

@@ -1,4 +1,3 @@
-
 package Metodos_Funciones;
 
 import java.util.Random;
@@ -8,10 +7,8 @@ import java.util.Random;
  * @author Kevin
  */
 public class Aviones_Creacion {
-    
-    
-    
-  Random vRandom = new Random();
+
+    Random vRandom = new Random();
 
     public String getNombrePiloto() {
         int vPosicion = 0;
@@ -44,6 +41,15 @@ public class Aviones_Creacion {
         return vLista[vNombre];
     }
 
+    public String[] getModelosComboBox() {
+
+        String[] vLista = {
+            "Modelos Existentes","Boeing 747", "Boeing 777", "Airbus A340", "Boeing 767", "Airbus A330", "Boeing 757", "Boeing 737", "McDonnell Douglas MD-80", "Embraer 170"
+        };
+
+        return vLista;
+    }
+
     public int getSobrecargos() {
         int vCargos = 0;
         vCargos = 100 + vRandom.nextInt(200);
@@ -55,5 +61,5 @@ public class Aviones_Creacion {
         vPasajeros = 150 + vRandom.nextInt(300);
         return vPasajeros;
     }
-    
+
 }

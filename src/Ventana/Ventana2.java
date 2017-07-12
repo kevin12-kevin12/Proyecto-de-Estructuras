@@ -17,7 +17,8 @@ public class Ventana2 extends JFrame {
     //Etiquetas de validaciones
     public JLabel Validacion1 = new JLabel("*Nesecita al menos 5 caracteres");
     public JLabel Validacion2 = new JLabel("*Nesecita al menos 5 caracteres");
-    //Panel para agregar Aviones 
+    //Panel para agregar Aviones
+    
     public JButton Agregar_Un_Avion = new JButton("Agregar");
     public JButton Cancelar = new JButton("Cancelar");
     public JPanel Panel_Agregar_Aviones = new JPanel();
@@ -83,12 +84,10 @@ public class Ventana2 extends JFrame {
         Combo_Agregar_Aviones.addItem("Vuelo");
         Combo_Agregar_Aviones.addItem("Atrerrizaje");
         Combo_Agregar_Aviones.addItem("Despegue");
-        String[] vLista = {
-            "Modelos Existentes", "Boeing 747", "Boeing 777", "Airbus A340", "Boeing 767", "Airbus A330", "Boeing 757", "Boeing 737", "McDonnell Douglas MD-80", "Embraer 170"
-        };
-        for (int i = 0; i < vLista.length; i++) {
-            ComboModeloAviones.addItem(vLista[i]);
-        }
+        
+//        for (int i = 0; i < vLista.length; i++) {
+//            ComboModeloAviones.addItem(vLista[i]);
+//        }
 
         Combo_Agregar_Aviones.setBounds(105, 5, 100, 20);
         Agregar_Un_Avion.setBounds(100, 130, 80, 30);
@@ -102,6 +101,7 @@ public class Ventana2 extends JFrame {
         Validacion2.setVisible(false);
         //Acciones de los botones
         Cancelar.addActionListener(new Manejador_2(this));
+        ComboModeloAviones.addActionListener(new Manejador_2(this));
 
         Combo_Agregar_Aviones.addActionListener(new Manejador_2(this));
         Agregar_Un_Avion.addActionListener(new Manejador_2(this));

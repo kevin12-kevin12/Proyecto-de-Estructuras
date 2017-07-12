@@ -20,6 +20,7 @@ public class Manejador_1 implements ActionListener {
     Lista_Hangar vHangar = new Lista_Hangar();
     Lista_Aterrizaje vAterrizaje = new Lista_Aterrizaje();
     Lista_Vuelo vVuelo = new Lista_Vuelo();
+    Lista_Modelos vModelos = new Lista_Modelos();
     Aviones_Creacion vMetodo = new Aviones_Creacion();
     CrearAvionesRandom vAvionesRandom = new CrearAvionesRandom();
     Metodo_Ordenamiento_Burbuja vOrdenamiento = new Metodo_Ordenamiento_Burbuja();
@@ -34,6 +35,13 @@ public class Manejador_1 implements ActionListener {
 
         if (e.getSource().equals(Frame.Agregar_Avion)) {
 
+            Frame.ComboModeloAviones.removeAll();
+            String[] vList = vModelos.ModelosAviones();
+            for (int i = 0; i < vList.length; i++) {
+
+                Frame.ComboModeloAviones.addItem(vList[i]);
+
+            }
             Frame.Agregar_Avion.setVisible(false);
             Frame.Hangar_Despegue.setVisible(false);
             Frame.vVuelo_Aterrizaje.setVisible(false);
@@ -45,9 +53,9 @@ public class Manejador_1 implements ActionListener {
 
             if (vIn >= 0) {
                 String vA = vHangar.TrasladarADespegue();
-            }else{
-                JOptionPane.showMessageDialog(null, "La lista de hangar esta vacia","Lista Vacia",JOptionPane.INFORMATION_MESSAGE);
-            
+            } else {
+                JOptionPane.showMessageDialog(null, "La lista de hangar esta vacia", "Lista Vacia", JOptionPane.INFORMATION_MESSAGE);
+
             }
 
         }

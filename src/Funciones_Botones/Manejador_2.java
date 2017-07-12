@@ -19,10 +19,19 @@ public class Manejador_2 implements ActionListener {
     Lista_Hangar vHangar = new Lista_Hangar();
     Lista_Aterrizaje vAterrizaje = new Lista_Aterrizaje();
     Lista_Vuelo vVuelo = new Lista_Vuelo();
+    Lista_Modelos vModelos = new Lista_Modelos();
     
     @Override
     public void actionPerformed(ActionEvent e) {
+        
+        Frame.Campo_Modelo.setText(Frame.ComboModeloAviones.getSelectedItem().toString());
+        if (Frame.Campo_Modelo.getText().equals("Modelos Existentes")) {
+            Frame.Campo_Modelo.setText("");
+            
+        }
+        
         if (e.getSource().equals(Frame.Agregar_Un_Avion)) {
+            
             String vModelo = Frame.Campo_Modelo.getText();
             String vPiloto = Frame.Campo_Piloto.getText();
             String itemSeleecionado = (String) Frame.Combo_Agregar_Aviones.getSelectedItem();
@@ -60,6 +69,7 @@ public class Manejador_2 implements ActionListener {
                                         Frame.vModelo.addElement(vLista[i]);
                                         
                                     }
+                                    vModelos.Agregar_modelo_Igualando(vModelo);
                                     Frame.Campo_Modelo.setText("");
                                     Frame.Campo_Pasajeros.setText("");
                                     Frame.Campo_Piloto.setText("");
@@ -79,6 +89,7 @@ public class Manejador_2 implements ActionListener {
                                     for (int i = 0; i < vLista.length; i++) {
                                         Frame.vModelo.addElement(vLista[i]);
                                     }
+                                    vModelos.Agregar_modelo_Igualando(vModelo);
                                     Frame.Campo_Modelo.setText("");
                                     Frame.Campo_Pasajeros.setText("");
                                     Frame.Campo_Piloto.setText("");
@@ -98,6 +109,7 @@ public class Manejador_2 implements ActionListener {
                                         Frame.vModelo.addElement(vLista[i]);
                                         
                                     }
+                                    vModelos.Agregar_modelo_Igualando(vModelo);
                                     Frame.Campo_Modelo.setText("");
                                     Frame.Campo_Pasajeros.setText("");
                                     Frame.Campo_Piloto.setText("");
