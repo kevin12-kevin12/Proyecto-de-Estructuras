@@ -14,11 +14,15 @@ import javax.swing.plaf.basic.BasicArrowButton;
 
 public class Ventana2 extends JFrame {
 
+    //Boton para Agregar una cantidad espesifica con random para cada lista
+    JButton vBoton_AgregarAvion_especifico= new JButton("Agregar cantidad Especifica");
+    //JTextField vCampo_Especifico= new 
+    //panel para agregar en especifico  
+    JPanel vPanel_Especifico = new JPanel();
     //Etiquetas de validaciones
-    public JLabel Validacion1 = new JLabel("*Nesecita al menos 5 caracteres");
-    public JLabel Validacion2 = new JLabel("*Nesecita al menos 5 caracteres");
+    public JLabel Validacion1 = new JLabel("*Necesita al menos 5 caracteres");
+    public JLabel Validacion2 = new JLabel("*Necesita al menos 5 caracteres");
     //Panel para agregar Aviones
-    
     public JButton Agregar_Un_Avion = new JButton("Agregar");
     public JButton Cancelar = new JButton("Cancelar");
     public JPanel Panel_Agregar_Aviones = new JPanel();
@@ -57,6 +61,7 @@ public class Ventana2 extends JFrame {
 
     public Ventana2() {
         super("Lista");
+        //Posicion agregar 
         //Botones de la lista de vuelo
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 7; j++) {
@@ -79,16 +84,15 @@ public class Ventana2 extends JFrame {
         Campo_Pasajeros.setBounds(65, 80, 150, 20);
         Et_Sobrecargos.setBounds(0, 105, 80, 20);
         Campo_Sobrecargos.setBounds(80, 105, 150, 20);
-
+        
         Combo_Agregar_Aviones.addItem("hangar");
         Combo_Agregar_Aviones.addItem("Vuelo");
         Combo_Agregar_Aviones.addItem("Atrerrizaje");
         Combo_Agregar_Aviones.addItem("Despegue");
-        
+
 //        for (int i = 0; i < vLista.length; i++) {
 //            ComboModeloAviones.addItem(vLista[i]);
 //        }
-
         Combo_Agregar_Aviones.setBounds(105, 5, 100, 20);
         Agregar_Un_Avion.setBounds(100, 130, 80, 30);
         Cancelar.setBounds(190, 130, 100, 30);
