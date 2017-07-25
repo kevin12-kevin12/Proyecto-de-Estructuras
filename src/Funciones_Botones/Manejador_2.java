@@ -27,7 +27,7 @@ public class Manejador_2 implements ActionListener {
         String vMod = (Frame.ComboModeloAviones.getSelectedItem().toString());
         if (vMod != "Agregar Nuevo") {
             Frame.Campo_Modelo.setText(vMod);
-        }
+        }  
         if (e.getSource().equals(Frame.Agregar_Un_Avion)) {
             String vModelo = Frame.Campo_Modelo.getText();
             String vPiloto = Frame.Campo_Piloto.getText();

@@ -31,8 +31,7 @@ public class Manejador_1 implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-
+    public void actionPerformed(ActionEvent e) { 
         if (e.getSource().equals(Frame.Agregar_Avion)) {
 
             Frame.ComboModeloAviones.removeAll();
@@ -41,10 +40,12 @@ public class Manejador_1 implements ActionListener {
 
                 Frame.ComboModeloAviones.addItem(vList[i]);
 
+
             }
             Frame.Agregar_Avion.setVisible(false);
             Frame.Hangar_Despegue.setVisible(false);
             Frame.vVuelo_Aterrizaje.setVisible(false);
+            Frame.vBoton_AgregarAvion_especifico.setVisible(false); 
             Frame.Panel_Agregar_Aviones.setVisible(true);
 
         }
@@ -76,6 +77,7 @@ public class Manejador_1 implements ActionListener {
 
             vAvionesRandom.AgregarAviones();
             Frame.Ingresar.setVisible(false);
+            Frame.vBoton_AgregarAvion_especifico.setVisible(true);
 
         }
         String itemSeleecionado = (String) Frame.vCombo.getSelectedItem();
@@ -116,18 +118,7 @@ public class Manejador_1 implements ActionListener {
                 Frame.vModelo.addElement(vLista[i]);
 
             }
-//            
-//            for (int i = 0; i < 3; i++) {
-//
-//                for (int j = 0; j < 7; j++) {
-//
-//                    
-//                    Frame.vMBotones_Vuelo[i][j].setText(vLista[vCont]);
-//                    vCont += 1;
-//
-//                }
-//
-//            }
+
 
         }
         if ("Lista de atrerrizaje".equals(itemSeleecionado)) {
