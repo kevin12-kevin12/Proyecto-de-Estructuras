@@ -24,10 +24,10 @@ public class Manejador_RadioButton implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(Frame.E_Aceptar)) {
-            boolean vR_Vuelo=Frame.R_Vuelo.isSelected();
-            boolean vR_Hangar=Frame.R_Hangar.isSelected();
-            boolean vR_Aterrizaje=Frame.R_Aterrizaje.isSelected();
-            boolean vR_Despegue=Frame.R_Despegue.isSelected();
+            boolean vR_Vuelo = Frame.R_Vuelo.isSelected();
+            boolean vR_Hangar = Frame.R_Hangar.isSelected();
+            boolean vR_Aterrizaje = Frame.R_Aterrizaje.isSelected();
+            boolean vR_Despegue = Frame.R_Despegue.isSelected();
             //Combinacion de las 4 listas
             if (Frame.R_Aterrizaje.isSelected() && Frame.R_Despegue.isSelected() && Frame.R_Hangar.isSelected() && Frame.R_Vuelo.isSelected()) {
 
@@ -48,7 +48,7 @@ public class Manejador_RadioButton implements ActionListener {
                 }
                 //Combinacion de 2 listas 
             }
-            if (Frame.R_Despegue.isSelected() && Frame.R_Hangar.isSelected() && Frame.R_Vuelo.isSelected()&&vR_Aterrizaje==false) {
+            if (Frame.R_Despegue.isSelected() && Frame.R_Hangar.isSelected() && Frame.R_Vuelo.isSelected() && vR_Aterrizaje == false) {
                 try {
                     int vCantidad = Integer.parseInt(Frame.vCampo_Especifico.getText());
                     vMetodo_Especifico.Random_Despegue_Hangar_Vuelo(vCantidad);
@@ -64,7 +64,7 @@ public class Manejador_RadioButton implements ActionListener {
                     JOptionPane.showMessageDialog(null, "Error" + i.getMessage());
                 }
             }
-             if (Frame.R_Despegue.isSelected() && Frame.R_Hangar.isSelected() && Frame.R_Aterrizaje.isSelected()&&vR_Vuelo==false) {
+            if (Frame.R_Despegue.isSelected() && Frame.R_Hangar.isSelected() && Frame.R_Aterrizaje.isSelected() && vR_Vuelo == false) {
                 try {
                     int vCantidad = Integer.parseInt(Frame.vCampo_Especifico.getText());
                     vMetodo_Especifico.Random_Despegue_Hangar_Aterrizaje(vCantidad);
@@ -80,9 +80,40 @@ public class Manejador_RadioButton implements ActionListener {
                     JOptionPane.showMessageDialog(null, "Error" + i.getMessage());
                 }
             }
-           
-           
-            if (Frame.R_Aterrizaje.isSelected() && Frame.R_Despegue.isSelected()&&vR_Hangar==false&&vR_Vuelo==false) {
+            if (Frame.R_Despegue.isSelected() && Frame.R_Vuelo.isSelected() && Frame.R_Aterrizaje.isSelected() && vR_Hangar == false) {
+                try {
+                    int vCantidad = Integer.parseInt(Frame.vCampo_Especifico.getText());
+                    vMetodo_Especifico.Random_Vuelo_Aterrizaje_Despegue(vCantidad);
+                    Frame.vPanel_Especifico.setVisible(false);
+                    Frame.Agregar_Avion.setVisible(true);
+                    Frame.vBoton_AgregarAvion_especifico.setVisible(true);
+                    Frame.vCampo_Especifico.setText("");
+                    Frame.R_Vuelo.setSelected(false);
+                    Frame.R_Despegue.setSelected(false);
+                    Frame.R_Aterrizaje.setSelected(false);
+
+                } catch (NumberFormatException i) {
+                    JOptionPane.showMessageDialog(null, "Error" + i.getMessage());
+                }
+            }
+            if (Frame.R_Vuelo.isSelected() && Frame.R_Hangar.isSelected() && Frame.R_Aterrizaje.isSelected() && vR_Despegue == false) {
+                try {
+                    int vCantidad = Integer.parseInt(Frame.vCampo_Especifico.getText());
+                    vMetodo_Especifico.Random_Vuelo_Hangar_Aterrizaje(vCantidad);
+                    Frame.vPanel_Especifico.setVisible(false);
+                    Frame.Agregar_Avion.setVisible(true);
+                    Frame.vBoton_AgregarAvion_especifico.setVisible(true);
+                    Frame.vCampo_Especifico.setText("");
+                    Frame.R_Hangar.setSelected(false);
+                    Frame.R_Vuelo.setSelected(false);
+                    Frame.R_Aterrizaje.setSelected(false);
+
+                } catch (NumberFormatException i) {
+                    JOptionPane.showMessageDialog(null, "Error" + i.getMessage());
+                }
+            }
+
+            if (Frame.R_Aterrizaje.isSelected() && Frame.R_Despegue.isSelected() && vR_Hangar == false && vR_Vuelo == false) {
                 try {
                     int vCantidad = Integer.parseInt(Frame.vCampo_Especifico.getText());
                     vMetodo_Especifico.Random_Despegue_Aterrizaje(vCantidad);
@@ -97,7 +128,7 @@ public class Manejador_RadioButton implements ActionListener {
                     JOptionPane.showMessageDialog(null, "Error" + i.getMessage());
                 }
             }
-            if (Frame.R_Despegue.isSelected() && Frame.R_Hangar.isSelected()&&vR_Vuelo==false&&vR_Aterrizaje==false) {
+            if (Frame.R_Despegue.isSelected() && Frame.R_Hangar.isSelected() && vR_Vuelo == false && vR_Aterrizaje == false) {
 
                 try {
                     int vCantidad = Integer.parseInt(Frame.vCampo_Especifico.getText());
@@ -113,7 +144,7 @@ public class Manejador_RadioButton implements ActionListener {
                     JOptionPane.showMessageDialog(null, "Error" + i.getMessage());
                 }
             }
-            if (Frame.R_Despegue.isSelected() && Frame.R_Vuelo.isSelected()&&vR_Aterrizaje==false&&vR_Hangar==false) {
+            if (Frame.R_Despegue.isSelected() && Frame.R_Vuelo.isSelected() && vR_Aterrizaje == false && vR_Hangar == false) {
 
                 try {
                     int vCantidad = Integer.parseInt(Frame.vCampo_Especifico.getText());
@@ -129,7 +160,7 @@ public class Manejador_RadioButton implements ActionListener {
                     JOptionPane.showMessageDialog(null, "Error" + i.getMessage());
                 }
             }
-            if (Frame.R_Vuelo.isSelected() && Frame.R_Aterrizaje.isSelected()&&vR_Despegue==false&&vR_Hangar==false) {
+            if (Frame.R_Vuelo.isSelected() && Frame.R_Aterrizaje.isSelected() && vR_Despegue == false && vR_Hangar == false) {
                 try {
                     int vCantidad = Integer.parseInt(Frame.vCampo_Especifico.getText());
                     vMetodo_Especifico.Random_Vuelo_Aterrizaje(vCantidad);
@@ -144,7 +175,7 @@ public class Manejador_RadioButton implements ActionListener {
                     JOptionPane.showMessageDialog(null, "Error" + i.getMessage());
                 }
             }
-            if (Frame.R_Vuelo.isSelected() && Frame.R_Hangar.isSelected()&&vR_Despegue==false&&vR_Aterrizaje==false) {
+            if (Frame.R_Vuelo.isSelected() && Frame.R_Hangar.isSelected() && vR_Despegue == false && vR_Aterrizaje == false) {
 
                 try {
                     int vCantidad = Integer.parseInt(Frame.vCampo_Especifico.getText());
@@ -160,7 +191,7 @@ public class Manejador_RadioButton implements ActionListener {
                     JOptionPane.showMessageDialog(null, "Error" + i.getMessage());
                 }
             }
-            if (Frame.R_Hangar.isSelected() && Frame.R_Aterrizaje.isSelected()&&vR_Despegue==false&&vR_Vuelo==false) {
+            if (Frame.R_Hangar.isSelected() && Frame.R_Aterrizaje.isSelected() && vR_Despegue == false && vR_Vuelo == false) {
 
                 try {
                     int vCantidad = Integer.parseInt(Frame.vCampo_Especifico.getText());
@@ -175,7 +206,7 @@ public class Manejador_RadioButton implements ActionListener {
                 } catch (NumberFormatException i) {
                     JOptionPane.showMessageDialog(null, "Error" + i.getMessage());
                 }
-            } //Combinacion de 3 lsitas
+            }
 
         }
 
