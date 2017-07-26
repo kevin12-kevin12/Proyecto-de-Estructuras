@@ -13,7 +13,7 @@ import javax.swing.*;
 
 public class INICIO extends JFrame {
 
-    public JButton boton1 = new JButton("Iniciar simulador");
+    public JButton boton1 = new JButton("Iniciar simulación");
     JPanel Panel1 = new JPanel();
     JLabel fondo = new JLabel();
 

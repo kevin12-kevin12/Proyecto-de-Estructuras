@@ -28,12 +28,7 @@ public class Manejador_3 implements ActionListener {
             Frame.Agregar_Avion.setVisible(false);
             Frame.vBoton_AgregarAvion_especifico.setVisible(false);
         }
-        if (e.getSource().equals(Frame.E_Cancelar)) {
-            Frame.vPanel_Especifico.setVisible(false);
-            Frame.Agregar_Avion.setVisible(true);
-            Frame.vBoton_AgregarAvion_especifico.setVisible(true);
-
-        }
+       
 
     }
 }

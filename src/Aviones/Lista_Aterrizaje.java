@@ -74,7 +74,7 @@ public class Lista_Aterrizaje {
     }
 
     public void AgregarAlFinal(String pModelo, int pPasajeros, int pSobrecargos, String pPiloto) {
-        Nodo_Aterrizaje nuevo = new Nodo_Aterrizaje(pModelo, pPasajeros, pSobrecargos, pPiloto);
+     Nodo_Aterrizaje nuevo = new Nodo_Aterrizaje(pModelo, pPasajeros, pSobrecargos, pPiloto);
         if (!ListaVacia()) {
             Final.siguiente = nuevo;
             Final = nuevo;
