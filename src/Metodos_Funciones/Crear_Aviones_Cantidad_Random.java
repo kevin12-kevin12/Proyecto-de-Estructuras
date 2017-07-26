@@ -115,7 +115,89 @@ public class Crear_Aviones_Cantidad_Random {
             vAterrizaje.AgregarAlFinal(vAvion.getModeloAvion(), vAvion.getPasajeros(), vAvion.getSobrecargos(), vAvion.getNombrePiloto());
         }
         JOptionPane.showMessageDialog(null, "Se añadieron: " + vCVuelo + " de aviones al Vuelo\n" + "Se añadieron: " + vCAterrizaje + " de aviones al Aterrizaje\n" + "Total de aviones creados:" + pDato);
+    }
 
+    public void Random_Hangar_Aterrizaje(int pDato) {
+
+        Random vRandom = new Random();
+        int vCHangar = vRandom.nextInt(pDato);
+        for (int i = 0; i < vCHangar; i++) {
+            vHangar.AgregarAlFinal(vAvion.getModeloAvion(), vAvion.getPasajeros(), vAvion.getSobrecargos(), vAvion.getNombrePiloto());
+
+        }
+        int vCAterrizaje = pDato - vCHangar;
+        for (int i = 0; i < vCAterrizaje; i++) {
+            vAterrizaje.AgregarAlFinal(vAvion.getModeloAvion(), vAvion.getPasajeros(), vAvion.getSobrecargos(), vAvion.getNombrePiloto());
+        }
+        JOptionPane.showMessageDialog(null, "Se añadieron: " + vCHangar + " de aviones al Hangar\n" + "Se añadieron: " + vCAterrizaje + " de aviones al Aterrizaje\n" + "Total de aviones creados:" + pDato);
+    }
+
+    public void Random_Despegue_Hangar_Vuelo(int pDato) {
+
+        Random vRandom = new Random();
+        int vCDespegue = vRandom.nextInt(pDato);
+        for (int i = 0; i < vCDespegue; i++) {
+            vDespegue.AgregarAlFinal(vAvion.getModeloAvion(), vAvion.getPasajeros(), vAvion.getSobrecargos(), vAvion.getNombrePiloto());
+
+        }
+        int CRandom1 = pDato - vCDespegue;
+        int vCHangar = vRandom.nextInt(CRandom1);
+        for (int i = 0; i < vCHangar; i++) {
+            vHangar.AgregarAlFinal(vAvion.getModeloAvion(), vAvion.getPasajeros(), vAvion.getSobrecargos(), vAvion.getNombrePiloto());
+        }
+
+        int vCVuelo = CRandom1 - vCHangar;
+        for (int i = 0; i < vCDespegue; i++) {
+            vVuelo.AgregarAlFinal(vAvion.getModeloAvion(), vAvion.getPasajeros(), vAvion.getSobrecargos(), vAvion.getNombrePiloto());
+
+        }
+        JOptionPane.showMessageDialog(null, "Se añadieron: " + vCDespegue + " de aviones al Despegue\n" + "Se añadieron: " + vCHangar + " de aviones al Hangar\n" + "Se añadieron: " + vCVuelo + " de aviones al Vuelo\n" + "Total de aviones creados:" + pDato);
+
+    }
+
+    public void Random_Despegue_Hangar_Aterrizaje(int pDato) {
+        
+         Random vRandom = new Random();
+        int vCDespegue = vRandom.nextInt(pDato);
+        for (int i = 0; i < vCDespegue; i++) {
+            vDespegue.AgregarAlFinal(vAvion.getModeloAvion(), vAvion.getPasajeros(), vAvion.getSobrecargos(), vAvion.getNombrePiloto());
+
+        }
+        int CRandom1 = pDato - vCDespegue;
+        int vCHangar = vRandom.nextInt(CRandom1);
+        for (int i = 0; i < vCHangar; i++) {
+            vHangar.AgregarAlFinal(vAvion.getModeloAvion(), vAvion.getPasajeros(), vAvion.getSobrecargos(), vAvion.getNombrePiloto());
+        }
+
+        int vCAterrizaje = CRandom1 - vCHangar;
+        for (int i = 0; i < vCAterrizaje; i++) {
+            vAterrizaje.AgregarAlFinal(vAvion.getModeloAvion(), vAvion.getPasajeros(), vAvion.getSobrecargos(), vAvion.getNombrePiloto());
+
+        }
+        JOptionPane.showMessageDialog(null, "Se añadieron: " + vCDespegue + " de aviones al Despegue\n" + "Se añadieron: " + vCHangar+ " de aviones al Hangar\n"+"Se añadieron: "+vCAterrizaje+" de aviones al Aterrizaje\n"+ "Total de aviones creados:" + pDato);
+    
+    }
+    public void Random_Vuelo_Hangar_Aterrizaje(int pDato) {
+        
+         Random vRandom = new Random();
+        int vCVuelo = vRandom.nextInt(pDato);
+        for (int i = 0; i < vCVuelo; i++) {
+            vVuelo.AgregarAlFinal(vAvion.getModeloAvion(), vAvion.getPasajeros(), vAvion.getSobrecargos(), vAvion.getNombrePiloto());
+
+        }
+        int CRandom1 = pDato - vCVuelo;
+        int vCHangar = vRandom.nextInt(CRandom1);
+        for (int i = 0; i < vCHangar; i++) {
+            vHangar.AgregarAlFinal(vAvion.getModeloAvion(), vAvion.getPasajeros(), vAvion.getSobrecargos(), vAvion.getNombrePiloto());
+        }
+
+        int vCAterrizaje = CRandom1 - vCHangar;
+        for (int i = 0; i < vCAterrizaje; i++) {
+            vAterrizaje.AgregarAlFinal(vAvion.getModeloAvion(), vAvion.getPasajeros(), vAvion.getSobrecargos(), vAvion.getNombrePiloto());
+
+        }
+        JOptionPane.showMessageDialog(null, "Se añadieron: " + vVuelo + " de aviones al Vuelo\n" + "Se añadieron: " + vCHangar+ " de aviones al Hangar\n"+"Se añadieron: "+vCAterrizaje+" de aviones al Aterrizaje\n"+ "Total de aviones creados:" + pDato);
+    
     }
 
 }
