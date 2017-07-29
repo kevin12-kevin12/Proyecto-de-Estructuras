@@ -39,6 +39,7 @@ public class Ventana2 extends JFrame {
     //Etiquetas de validaciones
     public JLabel Validacion1 = new JLabel("*Necesita al menos 5 caracteres");
     public JLabel Validacion2 = new JLabel("*Necesita al menos 5 caracteres");
+    public JLabel Validacion_Campo_Vacio= new JLabel("Campo vació");
     //Panel para agregar Aviones
     public Border borde_Panel_Un_Avion = new TitledBorder(new LineBorder(Color.BLACK), "Agregar un Avion");
     public JButton Agregar_Un_Avion = new JButton("Agregar");
@@ -91,6 +92,9 @@ public class Ventana2 extends JFrame {
         E_Aceptar.setBounds(50, 140, 100, 20);
         E_Cancelar.setBounds(160, 140, 100, 20);
         vCampo_Especifico.setBounds(10, 60, 100, 20);
+        Validacion_Campo_Vacio.setBounds(115, 60, 100, 20);
+        Validacion_Campo_Vacio.setForeground(Color.red);
+        Validacion_Campo_Vacio.setVisible(false);
         Eti2_Esp.setBounds(10, 30, 200, 20);
         vPanel_Especifico.setBounds(650, 590, 430, 180);
         
@@ -98,6 +102,7 @@ public class Ventana2 extends JFrame {
 //        vBoton_Grup.add(R_Hangar);
 //        vBoton_Grup.add(R_Despegue);
 //        vBoton_Grup.add(R_Aterrizaje);
+        vPanel_Especifico.add(Validacion_Campo_Vacio);
         vPanel_Especifico.add(Eti2_Esp);
         vPanel_Especifico.add(vCampo_Especifico);
         vPanel_Especifico.add(Eti1_Espe);

@@ -148,11 +148,11 @@ public class Manejador_2 implements ActionListener {
 
                             }
                         } catch (NumberFormatException j) {
-                            JOptionPane.showMessageDialog(null, "Error" + j.getMessage());
+                            JOptionPane.showMessageDialog(null, "Error, el campo debe ser completado con números y no con carácteres.\n" + j.getMessage());
 
                         }
                     } catch (NumberFormatException i) {
-                        JOptionPane.showMessageDialog(null, "Error" + i.getMessage());
+                        JOptionPane.showMessageDialog(null, "Error, el campo debe ser completado con números y no con carácteres.\n" + i.getMessage());
                     }
                 } else {
 
