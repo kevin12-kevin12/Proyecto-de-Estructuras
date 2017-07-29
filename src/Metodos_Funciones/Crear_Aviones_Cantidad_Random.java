@@ -201,7 +201,7 @@ public class Crear_Aviones_Cantidad_Random {
     }
 
     public void Random_Vuelo_Aterrizaje_Despegue(int pDato) {
-             Random vRandom = new Random();
+        Random vRandom = new Random();
         int vCVuelo = vRandom.nextInt(pDato);
         for (int i = 0; i < vCVuelo; i++) {
             vDespegue.AgregarAlFinal(vAvion.getModeloAvion(), vAvion.getPasajeros(), vAvion.getSobrecargos(), vAvion.getNombrePiloto());
@@ -218,8 +218,42 @@ public class Crear_Aviones_Cantidad_Random {
             vAterrizaje.AgregarAlFinal(vAvion.getModeloAvion(), vAvion.getPasajeros(), vAvion.getSobrecargos(), vAvion.getNombrePiloto());
 
         }
-        JOptionPane.showMessageDialog(null, "Se añadieron: " + vCVuelo + " de aviones al Vuelo\n" + "Se añadieron: " + vCAterrizaje+ " de aviones al Aterrizaje\n"+"Se añadieron: "+vCDespegue+" de aviones al Despegue\n"+ "Total de aviones creados:" + pDato);
-    
+        JOptionPane.showMessageDialog(null, "Se añadieron: " + vCVuelo + " de aviones al Vuelo\n" + "Se añadieron: " + vCAterrizaje + " de aviones al Aterrizaje\n" + "Se añadieron: " + vCDespegue + " de aviones al Despegue\n" + "Total de aviones creados:" + pDato);
+    }
+
+    public void Agregar_Solo_Despegue(int pDato) {
+        for (int i = 0; i < pDato; i++) {
+            vDespegue.AgregarAlFinal(vAvion.getModeloAvion(), vAvion.getPasajeros(), vAvion.getSobrecargos(), vAvion.getNombrePiloto());
+
+        }
+        JOptionPane.showMessageDialog(null, "Se agregaron "+pDato+" al Despegue");
+
+    }
+
+    public void Agregar_Solo_Hangar(int pDato) {
+        for (int i = 0; i < pDato; i++) {
+            vHangar.AgregarAlFinal(vAvion.getModeloAvion(), vAvion.getPasajeros(), vAvion.getSobrecargos(), vAvion.getNombrePiloto());
+
+        }
+        JOptionPane.showMessageDialog(null, "Se agregaron "+pDato+" al Hangar");
+    }
+
+    public void Agregar_Solo_Vuelo(int pDato) {
+        for (int i = 0; i < pDato; i++) {
+            vVuelo.AgregarAlFinal(vAvion.getModeloAvion(), vAvion.getPasajeros(), vAvion.getSobrecargos(), vAvion.getNombrePiloto());
+
+        }
+        JOptionPane.showMessageDialog(null, "Se agregaron "+pDato+" al Vuelo");
+
+    }
+
+    public void Agregar_Solo_Aterrizaje(int pDato) {
+        for (int i = 0; i < pDato; i++) {
+            vAterrizaje.AgregarAlFinal(vAvion.getModeloAvion(), vAvion.getPasajeros(), vAvion.getSobrecargos(), vAvion.getNombrePiloto());
+
+        }
+        JOptionPane.showMessageDialog(null, "Se agregaron "+pDato+" al Aterrizaje");
+
     }
 
 }

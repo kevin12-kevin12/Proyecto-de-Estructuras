@@ -29,6 +29,48 @@ public class Manejador_RadioButton implements ActionListener {
             boolean vR_Aterrizaje = Frame.R_Aterrizaje.isSelected();
             boolean vR_Despegue = Frame.R_Despegue.isSelected();
             //Combinacion de las 4 listas
+            if (Frame.R_Aterrizaje.isSelected() && vR_Despegue == false && vR_Hangar == false && vR_Vuelo == false) {
+
+                try {
+                    int vCantidad = Integer.parseInt(Frame.vCampo_Especifico.getText());
+                    vMetodo_Especifico.Agregar_Solo_Aterrizaje(vCantidad);
+
+                } catch (NumberFormatException i) {
+                    JOptionPane.showMessageDialog(null, "Error" + i.getMessage());
+                }
+
+            }
+            if (Frame.R_Vuelo.isSelected() && vR_Despegue == false && vR_Hangar == false && vR_Aterrizaje == false) {
+
+                try {
+                    int vCantidad = Integer.parseInt(Frame.vCampo_Especifico.getText());
+                    vMetodo_Especifico.Agregar_Solo_Vuelo(vCantidad);
+
+                } catch (NumberFormatException i) {
+                    JOptionPane.showMessageDialog(null, "Error" + i.getMessage());
+                }
+            }
+            if (Frame.R_Hangar.isSelected() && vR_Despegue == false && vR_Aterrizaje == false && vR_Vuelo == false) {
+
+                try {
+                    int vCantidad = Integer.parseInt(Frame.vCampo_Especifico.getText());
+                    vMetodo_Especifico.Agregar_Solo_Hangar(vCantidad);
+
+                } catch (NumberFormatException i) {
+                    JOptionPane.showMessageDialog(null, "Error" + i.getMessage());
+                }
+            }
+            if (Frame.R_Despegue.isSelected() && vR_Hangar == false && vR_Aterrizaje == false && vR_Vuelo == false) {
+
+                try {
+                    int vCantidad = Integer.parseInt(Frame.vCampo_Especifico.getText());
+                    vMetodo_Especifico.Agregar_Solo_Despegue(vCantidad);
+
+                } catch (NumberFormatException i) {
+                    JOptionPane.showMessageDialog(null, "Error" + i.getMessage());
+                }
+            }
+
             if (Frame.R_Aterrizaje.isSelected() && Frame.R_Despegue.isSelected() && Frame.R_Hangar.isSelected() && Frame.R_Vuelo.isSelected()) {
 
                 try {

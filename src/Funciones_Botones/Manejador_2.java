@@ -25,7 +25,7 @@ public class Manejador_2 implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         String vMod = (Frame.ComboModeloAviones.getSelectedItem().toString());
-        if (vMod != "Agregar Nuevo") {
+        if (vMod != "Agregar Modelo") {
             Frame.Campo_Modelo.setText(vMod);
         }
         if (e.getSource().equals(Frame.Agregar_Un_Avion)) {

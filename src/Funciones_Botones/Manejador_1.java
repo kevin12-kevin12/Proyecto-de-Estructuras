@@ -16,6 +16,7 @@ import java.util.Iterator;
 public class Manejador_1 implements ActionListener {
 
     private Ventana2 Frame;
+
     Lista_Despegue vDespegue = new Lista_Despegue();
     Lista_Hangar vHangar = new Lista_Hangar();
     Lista_Aterrizaje vAterrizaje = new Lista_Aterrizaje();
@@ -31,7 +32,24 @@ public class Manejador_1 implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) { 
+    public void actionPerformed(ActionEvent e) {
+
+        if (e.getSource().equals(Frame.Despegue_Vuelo)) {
+
+            int vPsajeros = vDespegue.Obtener_Pasajero();
+            int vSobrecargos = vDespegue.Obtener_Sobrecargos();
+            String vPiloto = vDespegue.Obtener_Piloto();
+            String vAvion = vDespegue.EliminarAlInicio();
+            vVuelo.AgregarAlFinal(vAvion, vPsajeros, vSobrecargos, vPiloto);
+        }
+        if (e.getSource().equals(Frame.vAterrizaje_Hangar)) {
+
+            int vPsajeros = vAterrizaje.Obtener_Pasajero();
+            int vSobrecargos = vAterrizaje.Obtener_Sobrecargos();
+            String vPiloto = vAterrizaje.Obtener_Piloto();
+            String vAvion = vAterrizaje.EliminarAlInicio();
+            vHangar.AgregarAlFinal(vAvion, vPsajeros, vSobrecargos, vPiloto);
+        }
         if (e.getSource().equals(Frame.Agregar_Avion)) {
 
             Frame.ComboModeloAviones.removeAll();
@@ -40,12 +58,11 @@ public class Manejador_1 implements ActionListener {
 
                 Frame.ComboModeloAviones.addItem(vList[i]);
 
-
             }
             Frame.Agregar_Avion.setVisible(false);
             Frame.Hangar_Despegue.setVisible(false);
             Frame.vVuelo_Aterrizaje.setVisible(false);
-            Frame.vBoton_AgregarAvion_especifico.setVisible(false); 
+            Frame.vBoton_AgregarAvion_especifico.setVisible(false);
             Frame.Panel_Agregar_Aviones.setVisible(true);
 
         }
@@ -93,9 +110,10 @@ public class Manejador_1 implements ActionListener {
 
             Frame.Hangar_Despegue.setVisible(false);
             Frame.vVuelo_Aterrizaje.setVisible(false);
+            Frame.vAterrizaje_Hangar.setVisible(false);
+            Frame.Despegue_Vuelo.setVisible(true);
 
-        }
-        else if ("Lista de hangar".equals(itemSeleecionado)) {
+        } else if ("Lista de hangar".equals(itemSeleecionado)) {
 
             Frame.vModelo.removeAllElements();
             String[] vLista = vHangar.RellenarArray();
@@ -106,12 +124,14 @@ public class Manejador_1 implements ActionListener {
             }
             Frame.Hangar_Despegue.setVisible(true);
             Frame.vVuelo_Aterrizaje.setVisible(false);
+            Frame.vAterrizaje_Hangar.setVisible(false);
+            Frame.Despegue_Vuelo.setVisible(false);
 
-        }
-        else if ("Lista de Vuelo".equals(itemSeleecionado)) {
+        } else if ("Lista de Vuelo".equals(itemSeleecionado)) {
             int vCont = 0;
             Frame.Hangar_Despegue.setVisible(false);
             Frame.vVuelo_Aterrizaje.setVisible(true);
+            Frame.vAterrizaje_Hangar.setVisible(false);
             Frame.vModelo.removeAllElements();
             String[] vLista = vVuelo.RellenarArray();
 
@@ -120,11 +140,10 @@ public class Manejador_1 implements ActionListener {
 
             }
 
-
-        }
-        else if ("Lista de atrerrizaje".equals(itemSeleecionado)) {
+        } else if ("Lista de atrerrizaje".equals(itemSeleecionado)) {
 
             Frame.vModelo.removeAllElements();
+////            Nodo_Aterrizaje vreccorer=vAterrizaje.I
             String[] vLista = vAterrizaje.RellenarArray();
             for (int i = 0; i < vLista.length; i++) {
                 Frame.vModelo.addElement(vLista[i]);
@@ -132,6 +151,8 @@ public class Manejador_1 implements ActionListener {
             }
             Frame.Hangar_Despegue.setVisible(false);
             Frame.vVuelo_Aterrizaje.setVisible(false);
+            Frame.vAterrizaje_Hangar.setVisible(true);
+            Frame.Despegue_Vuelo.setVisible(false);
 
         }
 

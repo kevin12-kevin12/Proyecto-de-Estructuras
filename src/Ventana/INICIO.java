@@ -46,6 +46,8 @@ public class INICIO extends JFrame {
 
         }
 
+        
+        
         @Override
         public void keyPressed(KeyEvent e) {
             int vCodigo = e.getKeyCode();

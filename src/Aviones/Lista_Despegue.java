@@ -83,6 +83,43 @@ public class Lista_Despegue {
 
         }
     }
+    
+    public String Obtener_Piloto() {
+        String vPiloto = Inicio.vPiloto;
+
+        return vPiloto;
+
+    }
+
+    public int Obtener_Sobrecargos() {
+
+        int vSobrecargos = Inicio.vSobrecargos;
+        return vSobrecargos;
+    }
+
+    public int Obtener_Pasajero() {
+
+        int vPasajeros = Inicio.vPasajeros;
+        return vPasajeros;
+    }
+
+    public String EliminarAlInicio() {
+
+        String vAvion = Inicio.vModelo;
+
+        if (Inicio == Final) {
+
+            Inicio = null;
+            Final = null;
+        } else {
+
+            Inicio = Inicio.siguiente;
+
+        }
+
+        return vAvion;
+
+    }
 
     public void Eliminar(Nodo_Despegue n) {
         if (n == Inicio) {

@@ -44,7 +44,7 @@ public class Aviones_Creacion {
     public String[] getModelosComboBox() {
 
         String[] vLista = {
-            "Agregar Nuevo","Boeing 747", "Boeing 777", "Airbus A340", "Boeing 767", "Airbus A330", "Boeing 757", "Boeing 737", "McDonnell Douglas MD-80", "Embraer 170"
+            "Agregar Modelo","Boeing 747", "Boeing 777", "Airbus A340", "Boeing 767", "Airbus A330", "Boeing 757", "Boeing 737", "McDonnell Douglas MD-80", "Embraer 170"
         };
 
         return vLista;

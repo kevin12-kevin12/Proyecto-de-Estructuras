@@ -1,7 +1,5 @@
 package Aviones;
 
-import Aviones.Nodo_Aterrizaje;
-
 public class Lista_Aterrizaje {
 
     protected static Nodo_Aterrizaje Inicio, Final;
@@ -74,7 +72,7 @@ public class Lista_Aterrizaje {
     }
 
     public void AgregarAlFinal(String pModelo, int pPasajeros, int pSobrecargos, String pPiloto) {
-     Nodo_Aterrizaje nuevo = new Nodo_Aterrizaje(pModelo, pPasajeros, pSobrecargos, pPiloto);
+        Nodo_Aterrizaje nuevo = new Nodo_Aterrizaje(pModelo, pPasajeros, pSobrecargos, pPiloto);
         if (!ListaVacia()) {
             Final.siguiente = nuevo;
             Final = nuevo;
@@ -105,18 +103,43 @@ public class Lista_Aterrizaje {
             }
 
         }
+    }
+
+    public String Obtener_Piloto() {
+        String vPiloto = Inicio.vPiloto;
+
+        return vPiloto;
 
     }
 
-    public void BuscarElimiar(String pModelo) {
-        Nodo_Aterrizaje recorrer = Inicio;
+    public int Obtener_Sobrecargos() {
 
-        while (recorrer != null && pModelo != recorrer.vModelo) {
-            recorrer = recorrer.siguiente;
+        int vSobrecargos = Inicio.vSobrecargos;
+        return vSobrecargos;
+    }
+
+    public int Obtener_Pasajero() {
+
+        int vPasajeros = Inicio.vPasajeros;
+        return vPasajeros;
+    }
+
+    public String EliminarAlInicio() {
+
+        String vAvion = Inicio.vModelo;
+
+        if (Inicio == Final) {
+
+            Inicio = null;
+            Final = null;
+        } else {
+
+            Inicio = Inicio.siguiente;
+
         }
-        if (recorrer != null) {
-            Eliminar(recorrer);
-        }
+
+        return vAvion;
+
     }
 
     public String[] Arreglo_validar() {
