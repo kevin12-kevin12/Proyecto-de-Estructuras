@@ -139,7 +139,6 @@ public class Lista_Aterrizaje {
         }
 
         return vAvion;
-
     }
 
     public String[] Arreglo_validar() {
@@ -156,10 +155,8 @@ public class Lista_Aterrizaje {
             recorrer = recorrer.siguiente;
             vLista[vCont] = vLista1;
             vCont += 1;
-
         }
 
         return vLista;
     }
-
 }

@@ -33,6 +33,11 @@ public class Manejador_1 implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (e.getSource().equals(Frame.vBoton_AgregarAvion_especifico)) {
+            Frame.vPanel_Especifico.setVisible(true);
+            Frame.Agregar_Avion.setVisible(false);
+            Frame.vBoton_AgregarAvion_especifico.setVisible(false);
+        }
 
         if (e.getSource().equals(Frame.Despegue_Vuelo)) {
 

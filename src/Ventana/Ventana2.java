@@ -123,7 +123,7 @@ public class Ventana2 extends JFrame {
         // Accion de los botones del manejador 3
         E_Aceptar.addActionListener(new Manejador_RadioButton(this));
         E_Cancelar.addActionListener(new Manejador_RadioButton(this));
-        vBoton_AgregarAvion_especifico.addActionListener(new Manejador_3(this));
+        vBoton_AgregarAvion_especifico.addActionListener(new Manejador_1(this));
 
         //Panel para agregar un avion
         Panel_Agregar_Aviones.setLayout(null);

@@ -145,7 +145,7 @@ public class Lista_Hangar {
             if (vLista_Hangar[i].equals(vAvion)) {
 
                 System.out.println(vLista_Hangar[i]);
-                JOptionPane.showMessageDialog(null, "Ya hay un avion en la lista de Hangar con las mismas caracteristicas\n compruebe con otras cracteristicas si quieres agregar un avion");
+                JOptionPane.showMessageDialog(null, "Ya hay un avion en la lista de Hangar con las mismas caracteristicas\n compruebe con otras caracteristicas si quieres agregar un avion");
                 vBandera = true;
             }
         }
@@ -154,7 +154,7 @@ public class Lista_Hangar {
             if (vLista_Despegue[i].equals(vAvion)) {
 
                 System.out.println(vLista_Despegue[i]);
-                JOptionPane.showMessageDialog(null, "Ya hay un avion en la lista de Despegue con las mismas caracteristicas\n compruebe con otras cracteristicas  si quieres agregar un avion");
+                JOptionPane.showMessageDialog(null, "Ya hay un avion en la lista de Despegue con las mismas caracteristicas\n compruebe con otras caracteristicas  si quieres agregar un avion");
                 vBandera = true;
             }
         }
