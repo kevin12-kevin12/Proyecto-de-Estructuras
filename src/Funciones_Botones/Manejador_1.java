@@ -137,6 +137,7 @@ public class Manejador_1 implements ActionListener {
             Frame.Hangar_Despegue.setVisible(false);
             Frame.vVuelo_Aterrizaje.setVisible(true);
             Frame.vAterrizaje_Hangar.setVisible(false);
+            Frame.Despegue_Vuelo.setVisible(false);
             Frame.vModelo.removeAllElements();
             String[] vLista = vVuelo.RellenarArray();
 

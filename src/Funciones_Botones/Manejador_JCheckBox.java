@@ -1,35 +1,34 @@
 package Funciones_Botones;
 
+import Metodos_Funciones.Crear_Aviones_Cantidad_Random;
+import Ventana.Ventana2;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import Aviones.*;
-import Metodos_Funciones.Crear_Aviones_Cantidad_Random;
-import Ventana.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-public class Manejador_RadioButton implements ActionListener {
+public class Manejador_JCheckBox implements ActionListener {
 
     Ventana2 Frame;
 
-    public Manejador_RadioButton(Ventana2 frame) {
+    public Manejador_JCheckBox(Ventana2 frame) {
 
         this.Frame = frame;
 
     }
-
     Crear_Aviones_Cantidad_Random vMetodo_Especifico = new Crear_Aviones_Cantidad_Random();
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource().equals(Frame.E_Aceptar)) {
-            boolean vR_Vuelo = Frame.R_Vuelo.isSelected();
-            boolean vR_Hangar = Frame.R_Hangar.isSelected();
-            boolean vR_Aterrizaje = Frame.R_Aterrizaje.isSelected();
-            boolean vR_Despegue = Frame.R_Despegue.isSelected();
-            //Combinacion de las 4 listas
-            if (Frame.R_Aterrizaje.isSelected() && vR_Despegue == false && vR_Hangar == false && vR_Vuelo == false) {
+        if (e.getSource().equals(Frame.BotoCheck)) {
+
+            boolean vR_Vuelo = Frame.Opcion_Vuelo.isSelected();
+            boolean vR_Hangar = Frame.Opcion_Hangar.isSelected();
+            boolean vR_Aterrizaje = Frame.Opcion_Aterrizaje.isSelected();
+            boolean vR_Despegue = Frame.Opcion_Despegue.isSelected();
+            //Cuando solo da check a solo uno de los cuatro
+            if (Frame.Opcion_Aterrizaje.isSelected() && vR_Despegue == false && vR_Hangar == false && vR_Vuelo == false) {
 
                 if (Frame.vCampo_Especifico.getText().equals("")) {
 
@@ -40,15 +39,21 @@ public class Manejador_RadioButton implements ActionListener {
                     try {
                         int vCantidad = Integer.parseInt(Frame.vCampo_Especifico.getText());
                         vMetodo_Especifico.Agregar_Solo_Aterrizaje(vCantidad);
+                        Frame.Opcion_Despegue.setSelected(false);
+                        Frame.Opcion_Vuelo.setSelected(false);
+                        Frame.Opcion_Aterrizaje.setSelected(false);
+                        Frame.Opcion_Hangar.setSelected(false);
+                        Frame.vCampo_Especifico.setText("");
+                        Frame.vPanel_Especifico.setVisible(false);
+                        Frame.Agregar_Avion.setVisible(true);
 
                     } catch (NumberFormatException i) {
                         JOptionPane.showMessageDialog(null, "Error, el campo debe ser completado con números y no con carácteres.\n" + i.getMessage());
                     }
 
                 }
-
             }
-            if (Frame.R_Vuelo.isSelected() && vR_Despegue == false && vR_Hangar == false && vR_Aterrizaje == false) {
+            if (Frame.Opcion_Vuelo.isSelected() && vR_Despegue == false && vR_Hangar == false && vR_Aterrizaje == false) {
 
                 if (Frame.vCampo_Especifico.getText().equals("")) {
 
@@ -59,14 +64,20 @@ public class Manejador_RadioButton implements ActionListener {
                     try {
                         int vCantidad = Integer.parseInt(Frame.vCampo_Especifico.getText());
                         vMetodo_Especifico.Agregar_Solo_Vuelo(vCantidad);
+                        Frame.Opcion_Despegue.setSelected(false);
+                        Frame.Opcion_Vuelo.setSelected(false);
+                        Frame.Opcion_Aterrizaje.setSelected(false);
+                        Frame.Opcion_Hangar.setSelected(false);
+                        Frame.vCampo_Especifico.setText("");
+                        Frame.vPanel_Especifico.setVisible(false);
+                        Frame.Agregar_Avion.setVisible(true);
 
                     } catch (NumberFormatException i) {
                         JOptionPane.showMessageDialog(null, "Error, el campo debe ser completado con números y no con carácteres.\n" + i.getMessage());
                     }
                 }
-
             }
-            if (Frame.R_Hangar.isSelected() && vR_Despegue == false && vR_Aterrizaje == false && vR_Vuelo == false) {
+            if (Frame.Opcion_Hangar.isSelected() && vR_Despegue == false && vR_Aterrizaje == false && vR_Vuelo == false) {
 
                 if (Frame.vCampo_Especifico.getText().equals("")) {
 
@@ -77,14 +88,20 @@ public class Manejador_RadioButton implements ActionListener {
                     try {
                         int vCantidad = Integer.parseInt(Frame.vCampo_Especifico.getText());
                         vMetodo_Especifico.Agregar_Solo_Hangar(vCantidad);
+                        Frame.Opcion_Despegue.setSelected(false);
+                        Frame.Opcion_Vuelo.setSelected(false);
+                        Frame.Opcion_Aterrizaje.setSelected(false);
+                        Frame.Opcion_Hangar.setSelected(false);
+                        Frame.vCampo_Especifico.setText("");
+                        Frame.vPanel_Especifico.setVisible(false);
+                        Frame.Agregar_Avion.setVisible(true);
 
                     } catch (NumberFormatException i) {
                         JOptionPane.showMessageDialog(null, "Error, el campo debe ser completado con números y no con carácteres.\n" + i.getMessage());
                     }
                 }
-
             }
-            if (Frame.R_Despegue.isSelected() && vR_Hangar == false && vR_Aterrizaje == false && vR_Vuelo == false) {
+            if (Frame.Opcion_Despegue.isSelected() && vR_Hangar == false && vR_Aterrizaje == false && vR_Vuelo == false) {
 
                 if (Frame.vCampo_Especifico.getText().equals("")) {
 
@@ -95,6 +112,13 @@ public class Manejador_RadioButton implements ActionListener {
                     try {
                         int vCantidad = Integer.parseInt(Frame.vCampo_Especifico.getText());
                         vMetodo_Especifico.Agregar_Solo_Despegue(vCantidad);
+                        Frame.Opcion_Despegue.setSelected(false);
+                        Frame.Opcion_Vuelo.setSelected(false);
+                        Frame.Opcion_Aterrizaje.setSelected(false);
+                        Frame.Opcion_Hangar.setSelected(false);
+                        Frame.vCampo_Especifico.setText("");
+                        Frame.vPanel_Especifico.setVisible(false);
+                        Frame.Agregar_Avion.setVisible(true);
 
                     } catch (NumberFormatException i) {
                         JOptionPane.showMessageDialog(null, "Error, el campo debe ser completado con números y no con carácteres.\n" + i.getMessage());
@@ -102,8 +126,8 @@ public class Manejador_RadioButton implements ActionListener {
                 }
 
             }
-
-            if (Frame.R_Aterrizaje.isSelected() && Frame.R_Despegue.isSelected() && Frame.R_Hangar.isSelected() && Frame.R_Vuelo.isSelected()) {
+            //Cuando le da check a los 4
+            if (Frame.Opcion_Aterrizaje.isSelected() && Frame.Opcion_Despegue.isSelected() && Frame.Opcion_Hangar.isSelected() && Frame.Opcion_Vuelo.isSelected()) {
 
                 if (Frame.vCampo_Especifico.getText().equals("")) {
 
@@ -118,19 +142,19 @@ public class Manejador_RadioButton implements ActionListener {
                         Frame.Agregar_Avion.setVisible(true);
                         Frame.vBoton_AgregarAvion_especifico.setVisible(true);
                         Frame.vCampo_Especifico.setText("");
-                        Frame.R_Despegue.setSelected(false);
-                        Frame.R_Vuelo.setSelected(false);
-                        Frame.R_Aterrizaje.setSelected(false);
-                        Frame.R_Hangar.setSelected(false);
+                        Frame.Opcion_Despegue.setSelected(false);
+                        Frame.Opcion_Vuelo.setSelected(false);
+                        Frame.Opcion_Aterrizaje.setSelected(false);
+                        Frame.Opcion_Hangar.setSelected(false);
 
                     } catch (NumberFormatException i) {
                         JOptionPane.showMessageDialog(null, "Error, el campo debe ser completado con números y no con carácteres.\n" + i.getMessage());
                     }
                 }
 
-                //Combinacion de 2 listas 
             }
-            if (Frame.R_Despegue.isSelected() && Frame.R_Hangar.isSelected() && Frame.R_Vuelo.isSelected() && vR_Aterrizaje == false) {
+            //cuando da check  a solo 3
+            if (Frame.Opcion_Despegue.isSelected() && Frame.Opcion_Hangar.isSelected() && Frame.Opcion_Vuelo.isSelected() && vR_Aterrizaje == false) {
 
                 if (Frame.vCampo_Especifico.getText().equals("")) {
 
@@ -145,9 +169,9 @@ public class Manejador_RadioButton implements ActionListener {
                         Frame.Agregar_Avion.setVisible(true);
                         Frame.vBoton_AgregarAvion_especifico.setVisible(true);
                         Frame.vCampo_Especifico.setText("");
-                        Frame.R_Hangar.setSelected(false);
-                        Frame.R_Despegue.setSelected(false);
-                        Frame.R_Vuelo.setSelected(false);
+                        Frame.Opcion_Despegue.setSelected(false);
+                        Frame.Opcion_Vuelo.setSelected(false);
+                        Frame.Opcion_Hangar.setSelected(false);
 
                     } catch (NumberFormatException i) {
                         JOptionPane.showMessageDialog(null, "Error, el campo debe ser completado con números y no con carácteres.\n" + i.getMessage());
@@ -155,7 +179,7 @@ public class Manejador_RadioButton implements ActionListener {
                 }
 
             }
-            if (Frame.R_Despegue.isSelected() && Frame.R_Hangar.isSelected() && Frame.R_Aterrizaje.isSelected() && vR_Vuelo == false) {
+            if (Frame.Opcion_Despegue.isSelected() && Frame.Opcion_Hangar.isSelected() && Frame.Opcion_Aterrizaje.isSelected() && vR_Vuelo == false) {
                 if (Frame.vCampo_Especifico.getText().equals("")) {
 
                     Frame.Validacion_Campo_Vacio.setVisible(true);
@@ -169,17 +193,16 @@ public class Manejador_RadioButton implements ActionListener {
                         Frame.Agregar_Avion.setVisible(true);
                         Frame.vBoton_AgregarAvion_especifico.setVisible(true);
                         Frame.vCampo_Especifico.setText("");
-                        Frame.R_Hangar.setSelected(false);
-                        Frame.R_Despegue.setSelected(false);
-                        Frame.R_Aterrizaje.setSelected(false);
+                        Frame.Opcion_Despegue.setSelected(false);
+                        Frame.Opcion_Aterrizaje.setSelected(false);
+                        Frame.Opcion_Hangar.setSelected(false);
 
                     } catch (NumberFormatException i) {
                         JOptionPane.showMessageDialog(null, "Error, el campo debe ser completado con números y no con carácteres.\n" + i.getMessage());
                     }
                 }
-
             }
-            if (Frame.R_Despegue.isSelected() && Frame.R_Vuelo.isSelected() && Frame.R_Aterrizaje.isSelected() && vR_Hangar == false) {
+            if (Frame.Opcion_Despegue.isSelected() && Frame.Opcion_Vuelo.isSelected() && Frame.Opcion_Aterrizaje.isSelected() && vR_Hangar == false) {
 
                 if (Frame.vCampo_Especifico.getText().equals("")) {
 
@@ -194,9 +217,9 @@ public class Manejador_RadioButton implements ActionListener {
                         Frame.Agregar_Avion.setVisible(true);
                         Frame.vBoton_AgregarAvion_especifico.setVisible(true);
                         Frame.vCampo_Especifico.setText("");
-                        Frame.R_Vuelo.setSelected(false);
-                        Frame.R_Despegue.setSelected(false);
-                        Frame.R_Aterrizaje.setSelected(false);
+                        Frame.Opcion_Despegue.setSelected(false);
+                        Frame.Opcion_Aterrizaje.setSelected(false);
+                        Frame.Opcion_Vuelo.setSelected(false);
 
                     } catch (NumberFormatException i) {
                         JOptionPane.showMessageDialog(null, "Error, el campo debe ser completado con números y no con carácteres.\n" + i.getMessage());
@@ -204,7 +227,7 @@ public class Manejador_RadioButton implements ActionListener {
                 }
 
             }
-            if (Frame.R_Vuelo.isSelected() && Frame.R_Hangar.isSelected() && Frame.R_Aterrizaje.isSelected() && vR_Despegue == false) {
+            if (Frame.Opcion_Vuelo.isSelected() && Frame.Opcion_Hangar.isSelected() && Frame.Opcion_Aterrizaje.isSelected() && vR_Despegue == false) {
 
                 if (Frame.vCampo_Especifico.getText().equals("")) {
 
@@ -219,9 +242,9 @@ public class Manejador_RadioButton implements ActionListener {
                         Frame.Agregar_Avion.setVisible(true);
                         Frame.vBoton_AgregarAvion_especifico.setVisible(true);
                         Frame.vCampo_Especifico.setText("");
-                        Frame.R_Hangar.setSelected(false);
-                        Frame.R_Vuelo.setSelected(false);
-                        Frame.R_Aterrizaje.setSelected(false);
+                        Frame.Opcion_Hangar.setSelected(false);
+                        Frame.Opcion_Aterrizaje.setSelected(false);
+                        Frame.Opcion_Vuelo.setSelected(false);
 
                     } catch (NumberFormatException i) {
                         JOptionPane.showMessageDialog(null, "Error, el campo debe ser completado con números y no con carácteres.\n" + i.getMessage());
@@ -229,8 +252,9 @@ public class Manejador_RadioButton implements ActionListener {
                 }
 
             }
+            //cl
 
-            if (Frame.R_Aterrizaje.isSelected() && Frame.R_Despegue.isSelected() && vR_Hangar == false && vR_Vuelo == false) {
+            if (Frame.Opcion_Aterrizaje.isSelected() && Frame.Opcion_Despegue.isSelected() && vR_Hangar == false && vR_Vuelo == false) {
 
                 if (Frame.vCampo_Especifico.getText().equals("")) {
 
@@ -245,8 +269,8 @@ public class Manejador_RadioButton implements ActionListener {
                         Frame.Agregar_Avion.setVisible(true);
                         Frame.vBoton_AgregarAvion_especifico.setVisible(true);
                         Frame.vCampo_Especifico.setText("");
-                        Frame.R_Despegue.setSelected(false);
-                        Frame.R_Aterrizaje.setSelected(false);
+                        Frame.Opcion_Despegue.setSelected(false);
+                        Frame.Opcion_Aterrizaje.setSelected(false);
 
                     } catch (NumberFormatException i) {
                         JOptionPane.showMessageDialog(null, "Error, el campo debe ser completado con números y no con carácteres.\n" + i.getMessage());
@@ -254,7 +278,7 @@ public class Manejador_RadioButton implements ActionListener {
                 }
 
             }
-            if (Frame.R_Despegue.isSelected() && Frame.R_Hangar.isSelected() && vR_Vuelo == false && vR_Aterrizaje == false) {
+            if (Frame.Opcion_Despegue.isSelected() && Frame.Opcion_Hangar.isSelected() && vR_Vuelo == false && vR_Aterrizaje == false) {
 
                 if (Frame.vCampo_Especifico.getText().equals("")) {
 
@@ -269,8 +293,8 @@ public class Manejador_RadioButton implements ActionListener {
                         Frame.Agregar_Avion.setVisible(true);
                         Frame.vBoton_AgregarAvion_especifico.setVisible(true);
                         Frame.vCampo_Especifico.setText("");
-                        Frame.R_Despegue.setSelected(false);
-                        Frame.R_Hangar.setSelected(false);
+                        Frame.Opcion_Despegue.setSelected(false);
+                        Frame.Opcion_Hangar.setSelected(false);
 
                     } catch (NumberFormatException i) {
                         JOptionPane.showMessageDialog(null, "Error, el campo debe ser completado con números y no con carácteres.\n" + i.getMessage());
@@ -278,7 +302,7 @@ public class Manejador_RadioButton implements ActionListener {
                 }
 
             }
-            if (Frame.R_Despegue.isSelected() && Frame.R_Vuelo.isSelected() && vR_Aterrizaje == false && vR_Hangar == false) {
+            if (Frame.Opcion_Despegue.isSelected() && Frame.Opcion_Vuelo.isSelected() && vR_Aterrizaje == false && vR_Hangar == false) {
 
                 if (Frame.vCampo_Especifico.getText().equals("")) {
 
@@ -293,8 +317,8 @@ public class Manejador_RadioButton implements ActionListener {
                         Frame.Agregar_Avion.setVisible(true);
                         Frame.vBoton_AgregarAvion_especifico.setVisible(true);
                         Frame.vCampo_Especifico.setText("");
-                        Frame.R_Despegue.setSelected(false);
-                        Frame.R_Vuelo.setSelected(false);
+                        Frame.Opcion_Despegue.setSelected(false);
+                        Frame.Opcion_Vuelo.setSelected(false);
 
                     } catch (NumberFormatException i) {
                         JOptionPane.showMessageDialog(null, "Error, el campo debe ser completado con números y no con carácteres.\n" + i.getMessage());
@@ -302,7 +326,7 @@ public class Manejador_RadioButton implements ActionListener {
                 }
 
             }
-            if (Frame.R_Vuelo.isSelected() && Frame.R_Aterrizaje.isSelected() && vR_Despegue == false && vR_Hangar == false) {
+            if (Frame.Opcion_Vuelo.isSelected() && Frame.Opcion_Aterrizaje.isSelected() && vR_Despegue == false && vR_Hangar == false) {
                 if (Frame.vCampo_Especifico.getText().equals("")) {
 
                     Frame.Validacion_Campo_Vacio.setVisible(true);
@@ -316,8 +340,8 @@ public class Manejador_RadioButton implements ActionListener {
                         Frame.Agregar_Avion.setVisible(true);
                         Frame.vBoton_AgregarAvion_especifico.setVisible(true);
                         Frame.vCampo_Especifico.setText("");
-                        Frame.R_Aterrizaje.setSelected(false);
-                        Frame.R_Vuelo.setSelected(false);
+                        Frame.Opcion_Aterrizaje.setSelected(false);
+                        Frame.Opcion_Vuelo.setSelected(false);
 
                     } catch (NumberFormatException i) {
                         JOptionPane.showMessageDialog(null, "Error, el campo debe ser completado con números y no con carácteres.\n" + i.getMessage());
@@ -325,7 +349,7 @@ public class Manejador_RadioButton implements ActionListener {
                 }
 
             }
-            if (Frame.R_Vuelo.isSelected() && Frame.R_Hangar.isSelected() && vR_Despegue == false && vR_Aterrizaje == false) {
+            if (Frame.Opcion_Vuelo.isSelected() && Frame.Opcion_Hangar.isSelected() && vR_Despegue == false && vR_Aterrizaje == false) {
 
                 if (Frame.vCampo_Especifico.getText().equals("")) {
 
@@ -341,8 +365,8 @@ public class Manejador_RadioButton implements ActionListener {
                         Frame.Agregar_Avion.setVisible(true);
                         Frame.vBoton_AgregarAvion_especifico.setVisible(true);
                         Frame.vCampo_Especifico.setText("");
-                        Frame.R_Hangar.setSelected(false);
-                        Frame.R_Vuelo.setSelected(false);
+                        Frame.Opcion_Hangar.setSelected(false);
+                        Frame.Opcion_Vuelo.setSelected(false);
 
                     } catch (NumberFormatException i) {
                         JOptionPane.showMessageDialog(null, "Error, el campo debe ser completado con números y no con carácteres.\n" + i.getMessage());
@@ -350,7 +374,7 @@ public class Manejador_RadioButton implements ActionListener {
                 }
 
             }
-            if (Frame.R_Hangar.isSelected() && Frame.R_Aterrizaje.isSelected() && vR_Despegue == false && vR_Vuelo == false) {
+            if (Frame.Opcion_Hangar.isSelected() && Frame.Opcion_Aterrizaje.isSelected() && vR_Despegue == false && vR_Vuelo == false) {
 
                 if (Frame.vCampo_Especifico.getText().equals("")) {
 
@@ -365,8 +389,8 @@ public class Manejador_RadioButton implements ActionListener {
                         Frame.Agregar_Avion.setVisible(true);
                         Frame.vBoton_AgregarAvion_especifico.setVisible(true);
                         Frame.vCampo_Especifico.setText("");
-                        Frame.R_Hangar.setSelected(false);
-                        Frame.R_Aterrizaje.setSelected(false);
+                        Frame.Opcion_Hangar.setSelected(false);
+                        Frame.Opcion_Vuelo.setSelected(false);
 
                     } catch (NumberFormatException i) {
                         JOptionPane.showMessageDialog(null, "Error, el campo debe ser completado con números y no con carácteres.\n" + i.getMessage());
@@ -376,11 +400,14 @@ public class Manejador_RadioButton implements ActionListener {
             }
 
         }
-
         if (e.getSource().equals(Frame.E_Cancelar)) {
             Frame.vPanel_Especifico.setVisible(false);
             Frame.Agregar_Avion.setVisible(true);
             Frame.vBoton_AgregarAvion_especifico.setVisible(true);
+            Frame.Opcion_Despegue.setSelected(false);
+            Frame.Opcion_Vuelo.setSelected(false);
+            Frame.Opcion_Aterrizaje.setSelected(false);
+            Frame.Opcion_Hangar.setSelected(false);
 
         }
     }

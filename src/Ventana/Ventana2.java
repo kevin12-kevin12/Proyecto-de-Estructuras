@@ -20,28 +20,32 @@ import javax.swing.plaf.basic.BasicArrowButton;
 
 public class Ventana2 extends JFrame {
 
+    //JCheckBox
+    public JCheckBox Opcion_Vuelo = new JCheckBox("Vuelo");
+    public JCheckBox Opcion_Hangar = new JCheckBox("Hangar");
+    public JCheckBox Opcion_Aterrizaje = new JCheckBox("Aterrizaje");
+    public JCheckBox Opcion_Despegue = new JCheckBox("Despegue");
+    public JButton BotoCheck = new JButton("Aceptar");
+
+    //Bordes
     public Border Borde_Botones = new LineBorder(Color.BLACK);
 
     //Boton para Agregar una cantidad espesifica con random para cada lista panel para agregar en especifico  
-    public Border borde_panel_Random = new TitledBorder(new EtchedBorder(), "Agregar Random");
-    public JLabel Eti2_Esp = new JLabel("Digite un numero para el random:");
-    public JLabel Eti1_Espe = new JLabel("Random a:");
+    public Border borde_panel_Random = new TitledBorder(new EtchedBorder(), "Agregar aleatorio");
+    public JLabel Eti2_Esp = new JLabel("Digite un numero para el aleatorio:");
+    public JLabel Eti1_Espe = new JLabel("aleatorio a:");
     public JButton E_Cancelar = new JButton("Cancelar");
-    public JButton E_Aceptar = new JButton("Aceptar");
-    public JButton vBoton_AgregarAvion_especifico = new JButton("Agregar cantidad Especifica");
+    
+    public JButton vBoton_AgregarAvion_especifico = new JButton("Agregar cantidad aleatorio");
     public JTextField vCampo_Especifico = new JTextField();
     public JPanel vPanel_Especifico = new JPanel();
-    public JRadioButton R_Vuelo = new JRadioButton("Vuelo");
-    public JRadioButton R_Aterrizaje = new JRadioButton("Aterrizaje");
-    public JRadioButton R_Hangar = new JRadioButton("Hangar");
-    public JRadioButton R_Despegue = new JRadioButton("Despegue");
-    public ButtonGroup vBoton_Grup = new ButtonGroup();
+    
     //Etiquetas de validaciones
     public JLabel Validacion1 = new JLabel("*Necesita al menos 5 caracteres");
     public JLabel Validacion2 = new JLabel("*Necesita al menos 5 caracteres");
-    public JLabel Validacion_Campo_Vacio= new JLabel("Campo vació");
+    public JLabel Validacion_Campo_Vacio = new JLabel("Campo vació");
     //Panel para agregar Aviones
-    public Border borde_Panel_Un_Avion = new TitledBorder(new LineBorder(Color.BLACK), "Agregar un Avion");
+    public Border borde_Panel_Un_Avion = new TitledBorder(new LineBorder(Color.BLACK), "Agregar un Avión");
     public JButton Agregar_Un_Avion = new JButton("Agregar");
     public JButton Cancelar = new JButton("Cancelar");
     public JPanel Panel_Agregar_Aviones = new JPanel();
@@ -65,14 +69,14 @@ public class Ventana2 extends JFrame {
     public DefaultListModel vModelo = new DefaultListModel();
     public JComboBox vCombo = new JComboBox();
     //Random Inicia del simulador
-    public JButton Ingresar = new JButton("Empezar con un random de 10 a 25");
+    public JButton Ingresar = new JButton("Empezar con un aleatorio de 10 a 25");
     //Botones para trasladar Aviones
-    public JButton vVuelo_Aterrizaje = new JButton("Aterrizar el Avion seleccionaada");
-    public JButton vAterrizaje_Hangar = new JButton("Desplazar el  Avion de Aterrizaje a Hangar");
-    public JButton Hangar_Despegue = new JButton("Pasar el ultimo avion del Hangar a pista Despegue");
-    public JButton Despegue_Vuelo= new JButton("Pasar el primero de la lista de despegue a vuelo");
+    public JButton vVuelo_Aterrizaje = new JButton("Aterrizar el avión seleccionaada");
+    public JButton vAterrizaje_Hangar = new JButton("Desplazar el  avión de Aterrizaje a Hangar");
+    public JButton Hangar_Despegue = new JButton("Pasar el ultimo avión del Hangar a pista Despegue");
+    public JButton Despegue_Vuelo = new JButton("Pasar el primero de la lista de despegue a vuelo");
     //Boton para agregar un avion
-    public JButton Agregar_Avion = new JButton("Agregar un avion");
+    public JButton Agregar_Avion = new JButton("Agregar un avión");
     //Fondo de la interfaz grafica
     public JLabel vFondo = new JLabel();
 
@@ -83,46 +87,43 @@ public class Ventana2 extends JFrame {
         super("Lista");
 
         // Panel Agregar aviones en especifico
+       
+
+        //Configuracion de los JCheckbox
         vPanel_Especifico.setLayout(null);
-        Eti1_Espe.setBounds(210, 5, 100, 20);
-        R_Vuelo.setBounds(260, 20, 100, 20);
-        R_Hangar.setBounds(260, 50, 100, 20);
-        R_Despegue.setBounds(260, 80, 100, 20);
-        R_Aterrizaje.setBounds(260, 110, 100, 20);
-        E_Aceptar.setBounds(50, 140, 100, 20);
-        E_Cancelar.setBounds(160, 140, 100, 20);
         vCampo_Especifico.setBounds(10, 60, 100, 20);
         Validacion_Campo_Vacio.setBounds(115, 60, 100, 20);
         Validacion_Campo_Vacio.setForeground(Color.red);
         Validacion_Campo_Vacio.setVisible(false);
         Eti2_Esp.setBounds(10, 30, 200, 20);
-        vPanel_Especifico.setBounds(650, 590, 430, 180);
-        
-//        vBoton_Grup.add(R_Vuelo);
-//        vBoton_Grup.add(R_Hangar);
-//        vBoton_Grup.add(R_Despegue);
-//        vBoton_Grup.add(R_Aterrizaje);
+        Eti1_Espe.setBounds(210, 5, 100, 20);
+        Opcion_Aterrizaje.setBounds(260, 20, 80, 20);
+        Opcion_Despegue.setBounds(260, 50, 100, 20);
+        Opcion_Hangar.setBounds(260, 80, 80, 20);
+        Opcion_Vuelo.setBounds(260, 110, 80, 20);
+        BotoCheck.setBounds(50, 140, 100, 20);
+        E_Cancelar.setBounds(160, 140, 100, 20);
+        vPanel_Especifico.add(Opcion_Aterrizaje);
+        vPanel_Especifico.add(Opcion_Despegue);
+        vPanel_Especifico.add(Opcion_Hangar);
+        vPanel_Especifico.add(Opcion_Vuelo);
+        vPanel_Especifico.add(E_Cancelar);
+        vPanel_Especifico.add(BotoCheck);
         vPanel_Especifico.add(Validacion_Campo_Vacio);
         vPanel_Especifico.add(Eti2_Esp);
         vPanel_Especifico.add(vCampo_Especifico);
         vPanel_Especifico.add(Eti1_Espe);
-        vPanel_Especifico.add(E_Cancelar);
-        vPanel_Especifico.add(E_Aceptar);
-        vPanel_Especifico.add(R_Aterrizaje);
-        vPanel_Especifico.add(R_Despegue);
-        vPanel_Especifico.add(R_Hangar);
-        vPanel_Especifico.add(R_Vuelo);
         vPanel_Especifico.setBorder(borde_panel_Random);
+        vPanel_Especifico.setBounds(650, 590, 430, 180);
         vPanel_Especifico.setVisible(false);
-
-        //Acciones de los radioButton
-        R_Aterrizaje.addActionListener(new Manejador_RadioButton(this));
-        R_Despegue.addActionListener(new Manejador_RadioButton(this));
-        R_Hangar.addActionListener(new Manejador_RadioButton(this));
-        R_Vuelo.addActionListener(new Manejador_RadioButton(this));
-        // Accion de los botones del manejador 3
-        E_Aceptar.addActionListener(new Manejador_RadioButton(this));
-        E_Cancelar.addActionListener(new Manejador_RadioButton(this));
+        //Acciones del manejador jcheckbox
+        BotoCheck.addActionListener(new Manejador_JCheckBox(this));
+        Opcion_Aterrizaje.addActionListener(new Manejador_JCheckBox(this));
+        Opcion_Despegue.addActionListener(new Manejador_JCheckBox(this));
+        Opcion_Hangar.addActionListener(new Manejador_JCheckBox(this));
+        Opcion_Vuelo.addActionListener(new Manejador_JCheckBox(this));
+        E_Cancelar.addActionListener(new Manejador_JCheckBox(this));
+       
         vBoton_AgregarAvion_especifico.addActionListener(new Manejador_1(this));
 
         //Panel para agregar un avion
@@ -143,9 +144,8 @@ public class Ventana2 extends JFrame {
         Combo_Agregar_Aviones.addItem("Aterrizaje");
         Combo_Agregar_Aviones.addItem("Despegue");
 
-
         Combo_Agregar_Aviones.setBounds(115,
-                 15, 100, 20);
+                15, 100, 20);
         Agregar_Un_Avion.setBounds(100, 145, 80, 30);
         Agregar_Avion.setBorder(Borde_Botones);
         Cancelar.setBounds(190, 145, 100, 30);
@@ -194,11 +194,11 @@ public class Ventana2 extends JFrame {
         scrollpane.setBounds(650, 45, 650, 500);
         scrollpane.setViewportView(lista_aviones);
         vFondo.add(scrollpane);
-        JLabel vEti = new JLabel("Listas de Aviones:");
+        JLabel vEti = new JLabel("Listas de Aviónes:");
         vEti.setBounds(650, 5, 200, 20);
         vCombo.addItem("Lista de hangar");
         vCombo.addItem("Lista de Vuelo");
-        vCombo.addItem("Lista de atrerrizaje");
+        vCombo.addItem("Lista de aterrizaje");
         vCombo.addItem("Lista de Despegue");
         vCombo.setBounds(650, 25, 200, 20);
         vCombo.setBackground(Color.lightGray);
@@ -233,7 +233,7 @@ public class Ventana2 extends JFrame {
         vFondo.setIcon(new ImageIcon(getClass().getResource("/Imagenes/Imagen1.png")));
         //Anadir los componentes al fondo
         vFondo.add(Despegue_Vuelo);
-        
+
         vFondo.add(vAterrizaje_Hangar);
         vFondo.add(vPanel_Especifico);
         vFondo.add(vBoton_AgregarAvion_especifico);
