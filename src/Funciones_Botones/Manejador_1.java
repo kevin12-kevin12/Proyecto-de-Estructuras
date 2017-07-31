@@ -11,7 +11,7 @@ import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
 import Ventana.*;
-import java.util.Iterator;
+
 
 public class Manejador_1 implements ActionListener {
 
@@ -24,7 +24,7 @@ public class Manejador_1 implements ActionListener {
     Lista_Modelos vModelos = new Lista_Modelos();
     Aviones_Creacion vMetodo = new Aviones_Creacion();
     CrearAvionesRandom vAvionesRandom = new CrearAvionesRandom();
-    Metodo_Ordenamiento_Burbuja vOrdenamiento = new Metodo_Ordenamiento_Burbuja();
+   
 
     public Manejador_1(Ventana2 Frame) {
         this.Frame = Frame;

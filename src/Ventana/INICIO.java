@@ -13,13 +13,14 @@ import javax.swing.*;
 
 public class INICIO extends JFrame {
 
-    public JButton boton1 = new JButton("Iniciar simulación");
+    public JButton boton1 = new JButton();
     JPanel Panel1 = new JPanel();
     JLabel fondo = new JLabel();
 
     public INICIO() {
         super("Aero");
-        boton1.setBounds(960, 700, 200, 20);
+        boton1.setBounds(850, 600, 400, 200);
+        boton1.setIcon(new ImageIcon(getClass().getResource("/Imagenes/INICIARGIF2.gif")));
         boton1.addActionListener(new Manejador_0(this));
         Panel1.setLayout(null);
         Panel1.setSize(1920, 1250);
