@@ -39,21 +39,42 @@ public class Manejador_1 implements ActionListener {
             Frame.vBoton_AgregarAvion_especifico.setVisible(false);
         }
 
+        
         if (e.getSource().equals(Frame.Despegue_Vuelo)) {
 
-            int vPsajeros = vDespegue.Obtener_Pasajero();
-            int vSobrecargos = vDespegue.Obtener_Sobrecargos();
-            String vPiloto = vDespegue.Obtener_Piloto();
-            String vAvion = vDespegue.EliminarAlInicio();
-            vVuelo.AgregarAlFinal(vAvion, vPsajeros, vSobrecargos, vPiloto);
+            int vIn = Frame.lista_aviones.getFirstVisibleIndex();
+
+            if (vIn >= 0) {
+                int vPsajeros = vDespegue.Obtener_Pasajero();
+                int vSobrecargos = vDespegue.Obtener_Sobrecargos();
+                String vPiloto = vDespegue.Obtener_Piloto();
+                String vAvion = vDespegue.EliminarAlInicio();
+                vVuelo.AgregarAlFinal(vAvion, vPsajeros, vSobrecargos, vPiloto);
+            } else {
+                JOptionPane.showMessageDialog(null, "La lista de Despegue esta vacia", "Lista Vacia", JOptionPane.INFORMATION_MESSAGE);
+
+            }
+
+            
         }
         if (e.getSource().equals(Frame.vAterrizaje_Hangar)) {
 
-            int vPsajeros = vAterrizaje.Obtener_Pasajero();
-            int vSobrecargos = vAterrizaje.Obtener_Sobrecargos();
-            String vPiloto = vAterrizaje.Obtener_Piloto();
-            String vAvion = vAterrizaje.EliminarAlInicio();
-            vHangar.AgregarAlFinal(vAvion, vPsajeros, vSobrecargos, vPiloto);
+            
+             int vIn = Frame.lista_aviones.getFirstVisibleIndex();
+
+            if (vIn >= 0) {
+                int vPsajeros = vAterrizaje.Obtener_Pasajero();
+                int vSobrecargos = vAterrizaje.Obtener_Sobrecargos();
+                String vPiloto = vAterrizaje.Obtener_Piloto();
+                String vAvion = vAterrizaje.EliminarAlInicio();
+                vHangar.AgregarAlFinal(vAvion, vPsajeros, vSobrecargos, vPiloto);
+            } else {
+                JOptionPane.showMessageDialog(null, "La lista de Aterrizaje esta vacia", "Lista Vacia", JOptionPane.INFORMATION_MESSAGE);
+
+            }
+            
+            
+           
         }
         if (e.getSource().equals(Frame.Agregar_Avion)) {
 
@@ -118,7 +139,7 @@ public class Manejador_1 implements ActionListener {
             Frame.vAterrizaje_Hangar.setVisible(false);
             Frame.Despegue_Vuelo.setVisible(true);
 
-        } else if ("Lista de hangar".equals(itemSeleecionado)) {
+        } else if ("Lista de Hangar".equals(itemSeleecionado)) {
 
             Frame.vModelo.removeAllElements();
             String[] vLista = vHangar.RellenarArray();
@@ -146,7 +167,7 @@ public class Manejador_1 implements ActionListener {
 
             }
 
-        } else if ("Lista de atrerrizaje".equals(itemSeleecionado)) {
+        } else if ("Lista de Aterrizaje".equals(itemSeleecionado)) {
 
             Frame.vModelo.removeAllElements();
 ////            Nodo_Aterrizaje vreccorer=vAterrizaje.I

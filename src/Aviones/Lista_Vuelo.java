@@ -38,17 +38,6 @@ public class Lista_Vuelo {
 
     }
 
-//     public void AgregarAlInicio(int pElemento) {
-//        if (!listaVacia()) {
-//
-//            Inicio = new Nodo_doble(pElemento, Inicio, null);
-//            Inicio.siguiente.anterior = Inicio;
-//        } else {
-//
-//            Inicio = Fin = new Nodo_doble(pElemento);
-//
-//        }
-//    }
     public int totalPosiciones() {
         Nodo_Vuelo recorrer = Inicio;
         int vCont = 0;
@@ -130,7 +119,7 @@ public class Lista_Vuelo {
 
         while (recorrer != null) {
 
-            vLista1 = recorrer.vPiloto + " <-- Nombre del piloto " + "Modelo: " + recorrer.vModelo + "  Cantidad de pasajero: " + recorrer.vPasajeros + "  Sobrecargos: " + recorrer.vSobrecargos;
+            vLista1 = recorrer.vPiloto + " <-- Nombre del piloto " + "Modelo: " + recorrer.vModelo + "  Cantidad de pasajeros: " + recorrer.vPasajeros + "  Sobrecargos: " + recorrer.vSobrecargos;
             recorrer = recorrer.siguiente;
             vLista[vCont] = vLista1;
             vCont += 1;
@@ -193,27 +182,6 @@ public class Lista_Vuelo {
 
     }
 
-//    public String[] RellenarBotones() {
-//
-//        OrdenarNodos();
-//        int vPosiciones = totalPosiciones();
-//        String[] vLista = new String[vPosiciones];
-//        String vLista1 = "";
-//        int vCont = 0;
-//        //String pLista = "";
-//        Nodo_Vuelo recorrer = Inicio;
-//
-//        while (recorrer != null) {
-//
-//            vLista1 = recorrer.vModelo;
-//            recorrer = recorrer.siguiente;
-//            vLista[vCont] = vLista1;
-//            vCont += 1;
-//
-//        }
-//
-//        return vLista;
-//
-//    }
+
 
 }

@@ -66,7 +66,7 @@ public class Lista_Hangar {
 
         while (recorrer != null) {
 
-            vLista1 = vCont + 1 + "." + "Modelo: " + recorrer.vModelo + "  Cantidad de pasajero: " + recorrer.vPasajeros + "  Sobrecargos: " + recorrer.vSobrecargos + "  Nombre del piloto: " + recorrer.vPiloto;
+            vLista1 = vCont + 1 + "." + "Modelo: " + recorrer.vModelo + "  Cantidad de pasajeros: " + recorrer.vPasajeros + "  Sobrecargos: " + recorrer.vSobrecargos + "  Nombre del piloto: " + recorrer.vPiloto;
             recorrer = recorrer.siguiente;
             vLista[vCont] = vLista1;
             vCont += 1;
@@ -145,7 +145,7 @@ public class Lista_Hangar {
             if (vLista_Hangar[i].equals(vAvion)) {
 
                 System.out.println(vLista_Hangar[i]);
-                JOptionPane.showMessageDialog(null, "Ya hay un avion en la lista de Hangar con las mismas caracteristicas\n compruebe con otras caracteristicas si quieres agregar un avion");
+                JOptionPane.showMessageDialog(null, "Ya hay un avión en la lista de Hangar con las mismas caracteristicas\n compruebe con otras caracteristicas si quieres agregar un avión");
                 vBandera = true;
             }
         }
@@ -154,7 +154,7 @@ public class Lista_Hangar {
             if (vLista_Despegue[i].equals(vAvion)) {
 
                 System.out.println(vLista_Despegue[i]);
-                JOptionPane.showMessageDialog(null, "Ya hay un avion en la lista de Despegue con las mismas caracteristicas\n compruebe con otras caracteristicas  si quieres agregar un avion");
+                JOptionPane.showMessageDialog(null, "Ya hay un avión en la lista de Despegue con las mismas caracteristicas\n compruebe con otras caracteristicas  si quieres agregar un avión");
                 vBandera = true;
             }
         }
@@ -163,7 +163,7 @@ public class Lista_Hangar {
             if (vLista_Vuelo[i].equals(vAvion)) {
 
                 System.out.println(vLista_Vuelo[i]);
-                JOptionPane.showMessageDialog(null, "Ya hay un avion en la lista de Vuelo con las mismas caracteristicas\n compruebe con otras cracteristicas  si quieres agregar un avion");
+                JOptionPane.showMessageDialog(null, "Ya hay un avión en la lista de Vuelo con las mismas caracteristicas\n compruebe con otras cracteristicas  si quieres agregar un avión");
                 vBandera = true;
             }
         }
@@ -172,7 +172,7 @@ public class Lista_Hangar {
             if (vLista_Aterrizaje[i].equals(vAvion)) {
 
                 System.out.println(vLista_Aterrizaje[i]);
-                JOptionPane.showMessageDialog(null, "Ya hay un avion en la lista de Aterrizaje con las mismas caracteristicas\n compruebe con otras cracteristicas si quieres agregar un avion");
+                JOptionPane.showMessageDialog(null, "Ya hay un avión en la lista de Aterrizaje con las mismas caracteristicas\n compruebe con otras cracteristicas si quieres agregar un avión");
                 vBandera = true;
             }
         }
@@ -188,7 +188,7 @@ public class Lista_Hangar {
             vRecorrer = vRecorrer.siguiente;
         }
 
-        String vAvion = "Modelo: " + Final.vModelo + "  Cantidad de pasajero: " + Final.vPasajeros + "  Sobrecargos: " + Final.vSobrecargos + "  Nombre del piloto: " + Final.vPiloto;
+        String vAvion = "Modelo: " + Final.vModelo + "  Cantidad de pasajeros: " + Final.vPasajeros + "  Sobrecargos: " + Final.vSobrecargos + "  Nombre del piloto: " + Final.vPiloto;
 
         vDespegue.AgregarAlFinal(Final.vModelo, Final.vPasajeros, Final.vSobrecargos, Final.vPiloto);
         Eliminar(Final);

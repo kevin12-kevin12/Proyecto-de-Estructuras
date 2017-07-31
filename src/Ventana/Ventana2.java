@@ -32,7 +32,9 @@ public class Ventana2 extends JFrame {
 
     //Boton para Agregar una cantidad espesifica con random para cada lista panel para agregar en especifico  
     public Border borde_panel_Random = new TitledBorder(new EtchedBorder(), "Agregar aleatorio");
-    public JLabel Eti2_Esp = new JLabel("Digite un numero para el aleatorio:");
+    public JLabel Eti2_Esp = new JLabel("Digite un numeró"
+            + ""
+            + " para el aleatorio:");
     public JLabel Eti1_Espe = new JLabel("aleatorio a:");
     public JButton E_Cancelar = new JButton("Cancelar");
     
@@ -71,10 +73,10 @@ public class Ventana2 extends JFrame {
     //Random Inicia del simulador
     public JButton Ingresar = new JButton("Empezar con un aleatorio de 10 a 25");
     //Botones para trasladar Aviones
-    public JButton vVuelo_Aterrizaje = new JButton("Aterrizar el avión seleccionaada");
+    public JButton vVuelo_Aterrizaje = new JButton("Aterrizar el avión seleccionada");
     public JButton vAterrizaje_Hangar = new JButton("Desplazar el  avión de Aterrizaje a Hangar");
     public JButton Hangar_Despegue = new JButton("Pasar el ultimo avión del Hangar a pista Despegue");
-    public JButton Despegue_Vuelo = new JButton("Pasar el primero de la lista de despegue a vuelo");
+    public JButton Despegue_Vuelo = new JButton("Despegar avión");
     //Boton para agregar un avion
     public JButton Agregar_Avion = new JButton("Agregar un avión");
     //Fondo de la interfaz grafica
@@ -196,9 +198,9 @@ public class Ventana2 extends JFrame {
         vFondo.add(scrollpane);
         JLabel vEti = new JLabel("Listas de Aviónes:");
         vEti.setBounds(650, 5, 200, 20);
-        vCombo.addItem("Lista de hangar");
+        vCombo.addItem("Lista de Hangar");
         vCombo.addItem("Lista de Vuelo");
-        vCombo.addItem("Lista de aterrizaje");
+        vCombo.addItem("Lista de Aterrizaje");
         vCombo.addItem("Lista de Despegue");
         vCombo.setBounds(650, 25, 200, 20);
         vCombo.setBackground(Color.lightGray);

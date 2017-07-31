@@ -60,7 +60,7 @@ public class Lista_Aterrizaje {
 
         while (recorrer != null) {
 
-            vLista1 = "Modelo: " + recorrer.vModelo + "  Cantidad de pasajero: " + recorrer.vPasajeros + "  Sobrecargos: " + recorrer.vSobrecargos + "  Nombre del piloto: " + recorrer.vPiloto;
+            vLista1 = "Modelo: " + recorrer.vModelo + "  Cantidad de pasajeros: " + recorrer.vPasajeros + "  Sobrecargos: " + recorrer.vSobrecargos + "  Nombre del piloto: " + recorrer.vPiloto;
             recorrer = recorrer.siguiente;
             vLista[vCont] = vLista1;
             vCont += 1;
